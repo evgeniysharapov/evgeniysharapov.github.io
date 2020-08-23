@@ -1,0 +1,13 @@
+#+TITLE: Projects
+#+AUTHOR: Evgeniy Sharapov
+#+EMAIL: evgeniy.sharapov@gmail.com
+#+OPTIONS: auto-id:t
+
+* Projects
+
+  THis is my projects list
+
+* Links
+
+  Here are some links
+

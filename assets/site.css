@@ -1,0 +1,20 @@
+* {
+    
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+.tag {
+    margin-top: -5px;
+    margin-bottom: 20px;
+    line-height: 1.75em;
+}
+
+.tag a {
+    text-decoration: none;
+}
+
+.label {
+    font-weight: 500;
+}

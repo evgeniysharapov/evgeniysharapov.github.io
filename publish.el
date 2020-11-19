@@ -86,7 +86,7 @@
          :sitemap-filename "index.org"
          :sitemap-title "Blog"
          :sitemap-sort-files anti-chronologically
-         :sitemap-function blog-sitemap-function
+         ;:sitemap-function blog-sitemap-function
          :sitemap-date-format "Published %d %b %d %Y"
          )
         ; assets, css/js/images/etc

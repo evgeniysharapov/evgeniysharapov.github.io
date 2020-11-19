@@ -1,0 +1,4 @@
+#+TITLE: Blog
+
+- [[file:test.org][Thius is a test page]]
+- [[file:another.org][Another Page]]

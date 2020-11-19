@@ -36,7 +36,7 @@
 (add-to-list 'load-path (concat  base-dir "lisp"))
 
 ;;; Default Export Settings
-;; They can be overriden on file basis
+;; They can be overriden on file/project basis
 (setf org-export-with-inlinetasks nil
       org-export-with-section-numbers nil
       org-export-with-smart-quotes t
@@ -50,43 +50,20 @@
       ;; use styles for HTMLizing
       org-html-htmlize-output-type 'css
       org-html-checkbox-type 'html
-      org-html-divs '((preamble "header" "top")
-                      (content "main" "content")
+      org-html-divs '((preamble  "header" "top")
+                      (content   "main"   "content")
                       (postamble "footer" "postamble"))
       org-html-container-element "section"
       org-html-metadata-timestamp-format "%Y-%m-%d"
       org-html-head-include-default-style t
-      org-html-style-default (site-snippet-file-to-string "head-styles.html")
+      org-html-style-default (site-snippet-file-to-string "header.html")
       org-html-head-include-scripts t
-      org-html-scripts (site-snippet-file-to-string "head-scripts.html")
+      org-html-scripts (site-snippet-file-to-string "scripts.html")
       org-html-home/up-format "%s\n%s\n"
 )
 
 
 ;;; Publishing Project 
-
-;; #+OPTIONS: auto-id:t toc:t tags:t
-;; #+options: html-link-use-abs-url:nil html-postamble:auto
-;; #+options: html-preamble:t html-scripts:t html-style:t
-;; #+options: html5-fancy:t tex:t
-;; #+html_container: div
-;; #+description:
-;; #+keywords:
-;; #+html_head:
-;; #+html_head_extra:
-;; #+subtitle:
-;; #+infojs_opt:
-;; #+creator: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.1 (<a href="https://orgmode.org">Org</a> mode 9.3.6)
-;; #+latex_header:
-
-;; (defun blog-sitemap-function (project &optional sitemap-filename)
-;;   "Generates sitemap for the blog"
-;;   (let* ((projects-props (cdr project))
-;;          (dir (file-name-as-directory (plist-get project-props :base-directory)))
-;;          )
-;;     (message ))
-;;   )
-
 (setf org-publish-project-alist
       `(
         ("homepage" :components ("content" "blog" "assets"))
@@ -139,7 +116,7 @@
         ; assets, css/js/images/etc
         ("assets"
          :base-directory ,site-assets-dir
-         :publishing-directory ,(site-publish-dir "/assets")
+         :publishing-directory ,(concat site-publish-dir "/assets")
          :base-extension "*"
          :recursive t
 	 :publishing-function org-publish-attachment

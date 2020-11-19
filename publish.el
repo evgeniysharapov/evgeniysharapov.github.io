@@ -23,43 +23,16 @@
 (defvar sitemap-date-format "Published %d %b %d %Y"
   "Format dates for the list of blog posts (sitemap).")
 
-;;;; HTML includes
-(defvar site-html-head
-  "<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic' rel='stylesheet' type='text/css'>
-<link rel='stylesheet' href='/assets/css/site.css' type='text/css'/>")
-
-(defvar site-html-blog-head
-  "<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic' rel='stylesheet' type='text/css'>
-<link rel='stylesheet' href='/assets/css/custom.css' type='text/css'/>
-<link rel='stylesheet' href='/assets/css/site.css' type='text/css'/>")
-
-(defvar site-html-preabmble
-  "<div class='nav'>
-<ul>
-<li><a href='/'>Home</a></li>
-<li><a href='/blog/'>Blog</a></li>
-<li><a href='http://github.com/evgeniysharapov'>GitHub</a></li>
-<li><a href='http://twitter.com/evgeniysharapov'>Twitter</a></li>
-<li><a href='/contact.html'>Contact</a></li>
-</ul>
-</div>")
-
-(defvar site-html-postamble
-"<div class='footer'>
-Copyright 2013 %a (%v HTML).<br>
-Last updated %C. <br>
-Built with %c.
-</div>")
-
 ;;;; User
 (setf user-full-name "Evgeniy N. Sharapov"
       user-mail-address "evgeniy.sharapov@gmail.com")
 
 ;;; Utilities
-(defun site-snippet-file-to-string (&optional filename)
-  "Reads a file FILENAME from directory src/_html into a string."
+(defun html (filename)
+  "Read a file FILENAME from directory src/_html into a string. 
+Extension .html is added automatically."
   (with-temp-buffer
-    (insert-file-contents (concat base-dir "src/_html/" (or filename "header.html")))
+    (insert-file-contents (concat base-dir "src/_html/" filename ".html"))
     (buffer-string)))
 
 ;;; Extra Packages
@@ -117,9 +90,9 @@ Built with %c.
          ;:html-link-home "/"
          :exclude "^blog"
 
-         :html-head ,site-html-head
-         :html-preamble ,site-html-preabmble
-         :html-postamble ,site-html-postamble
+         :html-head ,(html "header")
+         :html-preamble ,(html "nav")
+         :html-postamble ,(html "footer")
          )
         ; blog content has sitemap that is a list of posts
         ("blog"
@@ -137,9 +110,9 @@ Built with %c.
          ;:htmlized-source t
 
          ; :html-link-home "/"         
-         :html-head ,site-html-blog-head
-         :html-preamble ,site-html-preabmble
-         :html-postamble ,site-html-postamble
+         :html-head ,(html "header-blog")
+         :html-preamble ,(html "nav")
+         :html-postamble ,(html "footer")
          
          ;; Sitemap
          :auto-sitemap t

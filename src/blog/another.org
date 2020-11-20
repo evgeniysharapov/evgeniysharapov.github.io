@@ -3,28 +3,33 @@
 #+DATE: <2020-11-17 Tue>
 #+STARTUP: showall
 #+STARTUP: inlineimages
+
 * This is a level 1 Headline
+** preview 
+
+   This is another preview of the whole post 
+
 ** This is a 2 level
 *** This is a 3rd level
 
     SOme text /another/ text **bold**
     
-    #+begin_src c
-      int main() {
-          return 1;
-      }
-    #+end_src
+    #+BEGIN_SRC c
+    int main() {
+        return 1;
+    }
+    #+END_SRC
 
     And more code in Ocaml
 
-    #+begin_src ocaml
-      let f a b =
-        a + b
+    #+BEGIN_SRC ocaml
+    let f a b =
+      a + b
 
-      let d x =
-        print_endline x;
-        x
-    #+end_src
+    let d x =
+      print_endline x;
+      x
+    #+END_SRC
 **** More Header on 4th level
 ***** And this is a 5th level 
 **** Let's check 4th level again

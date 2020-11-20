@@ -9,7 +9,7 @@
 (require 'ox)
 (require 'ox-html)
 (require 'ox-publish)
-(require 'font-lock)
+
 
 ;;; Constants and Variables
 ;;;; Paths
@@ -56,6 +56,44 @@ Extension .html is added automatically."
       org-html-home/up-format "%s\n%s\n"
 )
 
+;;; Customizing Publishing Process
+(defun  blog-sitemap-function (title list)
+  "This is a replaced for `org-publish-sitemap-default'."
+  (mapconcat
+   'identity
+   (list
+    (concat "#+TITLE: " title)
+    (if (string-prefix-p "9.3" (org-version))
+        (org-list-to-subtree list nil '(:istart "** "))
+      (org-list-to-subtree list '(:istart "** ")))
+    "
+#+OPTIONS: title:nil num:nil")
+   "\n\n"))
+
+(defun  blog-sitemap-format-entry (entry style project)
+  "Formatting each entry in blog index."
+  (when (not (directory-name-p entry))
+    (concat
+     (format "
+[[file:%s][%s]]
+#+begin_article-info
+#+begin_date
+%s
+#+end_date
+#+begin_tags
+%s
+#+end_tags
+#+end_article-info
+#+INCLUDE: \"%s::preview\"  :only-contents t
+
+[[file:%s][Read more]]
+"
+             entry
+             (org-publish-find-title entry project)
+             (format-time-string "%B %e, %Y" (org-publish-find-date entry project))
+             (or (org-publish-find-property entry :keywords project 'html)  "")
+             entry
+             entry))))
 
 ;;; Publishing Project 
 (setf org-publish-project-alist
@@ -106,7 +144,8 @@ Extension .html is added automatically."
          :sitemap-filename "index.org"
          :sitemap-title "Blog"
          :sitemap-sort-files anti-chronologically
-         ;:sitemap-function blog-sitemap-function
+         :sitemap-function blog-sitemap-function
+         :sitemap-format-entry blog-sitemap-format-entry
          :sitemap-date-format "Published %d %b %d %Y"
          )
         ; assets, css/js/images/etc

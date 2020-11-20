@@ -1,4 +1,29 @@
 #+TITLE: Blog
 
-- [[file:test.org][Thius is a test page]]
-- [[file:another.org][Another Page]]
+**   [[file:test.org][Thius is a test page]]
+#+BEGIN_article-info
+#+BEGIN_date
+November 17, 2020
+#+END_date
+#+BEGIN_tags
+
+#+END_tags
+#+END_article-info
+#+INCLUDE: "test.org::preview"  :only-contents t
+
+[[file:test.org][Read more]]
+**   [[file:another.org][Another Page]]
+#+BEGIN_article-info
+#+BEGIN_date
+November 17, 2020
+#+END_date
+#+BEGIN_tags
+
+#+END_tags
+#+END_article-info
+#+INCLUDE: "another.org::preview"  :only-contents t
+
+[[file:another.org][Read more]]
+
+
+#+OPTIONS: title:nil num:nil

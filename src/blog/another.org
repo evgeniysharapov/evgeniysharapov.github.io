@@ -21,7 +21,7 @@
     #+END_SRC
 
     And more code in Ocaml
-
+    
     #+BEGIN_SRC ocaml
     let f a b =
       a + b
@@ -30,6 +30,16 @@
       print_endline x;
       x
     #+END_SRC
+
+    And the existing validation logic, defined as validateSignup. We
+    won’t dig into to the implementation yet, only its type signatur
+    And the existing validation logic, defined as validateSignup. We
+    won’t dig into to the implementation yet, only its type signature
+    And the existing validation logic, defined as validateSignup. We
+    won’t dig into to the implementation yet, only its type signature
+
+    Let's do some inline =code= and even some more.
+
 **** More Header on 4th level
 ***** And this is a 5th level 
 **** Let's check 4th level again

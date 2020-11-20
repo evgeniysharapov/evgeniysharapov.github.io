@@ -152,7 +152,7 @@ Extension .html is added automatically."
         ("assets"
          :base-directory ,site-assets-dir
          :publishing-directory ,(concat site-publish-dir "/assets")
-         :base-extension "css"
+         :base-extension "css\\|ttf\\|woff2\\|jpg\\|jpeg\\|gif\\|png\\|pdf\\|svg"
          :recursive t
 	 :publishing-function org-publish-attachment
          )))

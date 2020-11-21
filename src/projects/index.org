@@ -11,3 +11,15 @@
 
   Here are some links
 
+
+#+begin_quote
+THis is a quote 
+#+end_quote
+
+
+and adding some exampels 
+
+#+begin_example
+This is an example 
+ I ignore
+#+end_example

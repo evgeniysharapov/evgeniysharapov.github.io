@@ -23,6 +23,8 @@
   "Format for displaying publish dates.")
 (defvar sitemap-date-format "Published %d %b %d %Y"
   "Format dates for the list of blog posts (sitemap).")
+(defvar blog-index-date-format "%B %e, %Y"
+  "Format dates for list of published blog posts")
 
 ;;;; User
 (setf user-full-name "Evgeniy N. Sharapov"
@@ -49,9 +51,9 @@ Extension .html is added automatically."
                       (postamble "footer" "postamble"))
       org-html-container-element "section"
       org-html-metadata-timestamp-format "%Y-%m-%d"
-      ;org-html-head-include-default-style t
+      org-html-head-include-default-style nil
       ;org-html-style-default (site-snippet-file-to-string "header.html")
-      ;org-html-head-include-scripts t
+      org-html-head-include-scripts nil
       ;org-html-scripts (site-snippet-file-to-string "scripts.html")
       org-html-home/up-format "%s\n%s\n"
 )
@@ -67,7 +69,7 @@ Extension .html is added automatically."
         (org-list-to-subtree list nil '(:istart "** "))
       (org-list-to-subtree list '(:istart "** ")))
     "
-#+OPTIONS: title:nil num:nil")
+#+OPTIONS: title:nil num:nil tags:t")
    "\n\n"))
 
 (defun  blog-sitemap-format-entry (entry style project)
@@ -84,13 +86,13 @@ Extension .html is added automatically."
 %s
 #+end_tags
 #+end_article-info
-#+INCLUDE: \"%s::preview\"  :only-contents t
+#+INCLUDE: \"%s::#preview\"  :only-contents t
 
-[[file:%s][Read more]]
+[[file:%s][Read more...]]
 "
              entry
              (org-publish-find-title entry project)
-             (format-time-string "%B %e, %Y" (org-publish-find-date entry project))
+             (format-time-string blog-index-date-format (org-publish-find-date entry project))
              (or (org-publish-find-property entry :keywords project 'html)  "")
              entry
              entry))))

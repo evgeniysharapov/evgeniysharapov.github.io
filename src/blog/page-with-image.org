@@ -1,0 +1,31 @@
+#+TITLE: Another Page
+#+AUTHOR: Evgeniy N. Sharapov
+#+DATE: <2020-11-17 Tue>
+#+KEYWORDS: laptop car pc sailboat
+#+STARTUP: showall
+#+STARTUP: inlineimages
+* This is a Page main Heading
+** First Things First
+   :PROPERTIES:
+   :CUSTOM_ID: preview
+   :END:
+
+
+    [[./../assets/img/test-image.png]]
+
+    This is a preview of the post. This technique uses a nylon powder
+    which conveniently supports the structures as they are printed. No
+    scaffolding or supports are needed, so we can print as many objects
+    as we can pack into the volume.
+
+** Let's go 
+
+   This technique uses a nylon powder which conveniently supports the
+   structures as they are printed. No scaffolding or supports are
+   needed, so we can print as many objects as we can pack into the
+   volume.
+
+   This technique uses a nylon powder which conveniently supports the
+   structures as they are printed. No scaffolding or supports are
+   needed, so we can print as many objects as we can pack into the
+   volume.

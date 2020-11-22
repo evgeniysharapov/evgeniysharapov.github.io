@@ -5,6 +5,9 @@
 #+STARTUP: inlineimages
 * This is a level 1 Headline
 ** preview                                                         :noexport:
+   :PROPERTIES:
+   :CUSTOM_ID: preview
+   :END:
 
    This is a preview of the whole post 
 

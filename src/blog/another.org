@@ -6,6 +6,9 @@
 
 * This is a level 1 Headline
 ** preview 
+   :PROPERTIES:
+   :CUSTOM_ID: preview
+   :END:
 
    This is another preview of the whole post 
 

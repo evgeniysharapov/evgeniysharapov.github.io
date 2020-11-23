@@ -100,7 +100,7 @@ Extension .html is added automatically."
 ;;; Publishing Project 
 (setf org-publish-project-alist
       `(
-        ("evgeniysharapov.com" :components ("content" "blog" "assets"))
+        ("evgeniysharapov.com" :components ("content" "blog" "assets" "content-images"))
         ; main content with projects, articles, etc
         ("content"
          :base-directory ,site-source-dir
@@ -150,11 +150,20 @@ Extension .html is added automatically."
          :sitemap-format-entry blog-sitemap-format-entry
          :sitemap-date-format "Published %d %b %d %Y"
          )
-        ; assets, css/js/images/etc
+
+        ;; assets, css/fonts/js
         ("assets"
          :base-directory ,site-assets-dir
          :publishing-directory ,(concat site-publish-dir "/assets")
          :base-extension "css\\|ttf\\|woff2\\|jpg\\|jpeg\\|gif\\|png\\|pdf\\|svg"
+         :recursive t
+	 :publishing-function org-publish-attachment
+         )
+        ;; images
+        ("content-images"
+         :base-directory ,(site-source-dir "/images")
+         :publishing-directory ,(concat site-publish-dir "/images")
+         :base-extension "jpg\\|jpeg\\|gif\\|png\\|pdf\\|svg"
          :recursive t
 	 :publishing-function org-publish-attachment
          )))

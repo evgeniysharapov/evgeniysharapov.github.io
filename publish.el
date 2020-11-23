@@ -10,7 +10,6 @@
 (require 'ox-html)
 (require 'ox-publish)
 
-
 ;;; Constants and Variables
 ;;;; Paths
 (defconst base-dir (file-name-directory (or load-file-name (buffer-file-name (current-buffer)))))
@@ -72,19 +71,22 @@ Extension .html is added automatically."
 #+OPTIONS: title:nil num:nil tags:t")
    "\n\n"))
 
+(defun tagify (s)
+  "Converts Keywords into tags"
+  (let ((tags (split-string s "[ ,;]+" 'omit-nulls "trim")))
+    (if tags (concat ":" (mapconcat 'identity tags ":") ":")
+      "")))
+
 (defun  blog-sitemap-format-entry (entry style project)
   "Formatting each entry in blog index."
   (when (not (directory-name-p entry))
     (concat
      (format "
-[[file:%s][%s]]
+[[file:%s][%s]]\t\t%s
 #+begin_article-info
 #+begin_date
 %s
 #+end_date
-#+begin_tags
-%s
-#+end_tags
 #+end_article-info
 #+INCLUDE: \"%s::#preview\"  :only-contents t
 
@@ -92,8 +94,8 @@ Extension .html is added automatically."
 "
              entry
              (org-publish-find-title entry project)
+             (tagify (or (org-publish-find-property entry :keywords project 'html)  ""))
              (format-time-string blog-index-date-format (org-publish-find-date entry project))
-             (or (org-publish-find-property entry :keywords project 'html)  "")
              entry
              entry))))
 
@@ -161,7 +163,7 @@ Extension .html is added automatically."
          )
         ;; images
         ("content-images"
-         :base-directory ,(site-source-dir "/images")
+         :base-directory ,(concat site-source-dir "/images")
          :publishing-directory ,(concat site-publish-dir "/images")
          :base-extension "jpg\\|jpeg\\|gif\\|png\\|pdf\\|svg"
          :recursive t

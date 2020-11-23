@@ -1,7 +1,8 @@
-#+TITLE: Another Page
+#+TITLE: Another Page With Tags and Image
 #+AUTHOR: Evgeniy N. Sharapov
 #+DATE: <2020-11-17 Tue>
 #+KEYWORDS: laptop car pc sailboat
+#+TAGS: Tag Simple 
 #+STARTUP: showall
 #+STARTUP: inlineimages
 

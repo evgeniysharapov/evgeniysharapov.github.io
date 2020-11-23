@@ -112,16 +112,17 @@ blockquote {
 /*                  Tags and Keywords                    */
 /* ----------------------------------------------------- */
 .tag span {
-  background: var(--color-tag-background);
-  color: var(--color-tag);
-  display: inline;
-  padding: .2rem .6rem .3rem;
-  font-size: 50%;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  border-radius: .25rem;
+    background: var(--color-tag-background);
+    color: var(--color-tag);
+    display: inline;
+    padding: .2rem .6rem .3rem;
+    border-radius: .25rem;
+    font-family: ;
+    font-size: 50%;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
 }  
 
 h2 .tag {

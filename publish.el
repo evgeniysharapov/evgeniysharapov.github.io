@@ -23,7 +23,7 @@
 (defvar sitemap-date-format "Published %d %b %d %Y"
   "Format dates for the list of blog posts (sitemap).")
 (defvar blog-index-date-format "%B %e, %Y"
-  "Format dates for list of published blog posts")
+  "Format dates for list of published blog posts.")
 
 ;;;; User
 (setf user-full-name "Evgeniy N. Sharapov"
@@ -51,8 +51,8 @@ Extension .html is added automatically."
       org-html-container-element "section"
       org-html-metadata-timestamp-format "%Y-%m-%d"
       org-html-head-include-default-style nil
-      ;org-html-style-default (site-snippet-file-to-string "header.html")
       org-html-head-include-scripts nil
+      ;org-html-style-default (site-snippet-file-to-string "header.html")
       ;org-html-scripts (site-snippet-file-to-string "scripts.html")
       org-html-home/up-format "%s\n%s\n"
 )
@@ -64,6 +64,7 @@ Extension .html is added automatically."
    'identity
    (list
     (concat "#+TITLE: " title)
+    ;; 9.3 sort of broke API
     (if (string-prefix-p "9.3" (org-version))
         (org-list-to-subtree list nil '(:istart "** "))
       (org-list-to-subtree list '(:istart "** ")))
@@ -72,13 +73,17 @@ Extension .html is added automatically."
    "\n\n"))
 
 (defun tagify (s)
-  "Converts Keywords into tags"
+  "Convert given string S into a string that represents Org tags.
+
+So the S is split into parts and then joined into a string with ':' character."
   (let ((tags (split-string s "[ ,;]+" 'omit-nulls "trim")))
     (if tags (concat ":" (mapconcat 'identity tags ":") ":")
       "")))
 
 (defun  blog-sitemap-format-entry (entry style project)
-  "Formatting each entry in blog index."
+  "Format each entry in blog index.
+
+Same parameters ENTRY, STYLE and PROJECT as in `org-publish-sitemap-default-entry'."
   (when (not (directory-name-p entry))
     (concat
      (format "
@@ -98,6 +103,26 @@ Extension .html is added automatically."
              (format-time-string blog-index-date-format (org-publish-find-date entry project))
              entry
              entry))))
+
+
+(defun sass-compile-publish (_plist filename pub-dir)
+  "Publish an scss/sass file.
+
+FILENAME is the filename of the Org file to be published.  PLIST
+is the property list for the given project.  PUB-DIR is the
+publishing directory.
+
+Return output file name."
+  (unless (file-directory-p pub-dir)
+    (make-directory pub-dir t))
+  (let ((output (expand-file-name (file-name-nondirectory filename) pub-dir)))
+    (unless (file-equal-p (expand-file-name (file-name-directory filename))
+			  (file-name-as-directory (expand-file-name pub-dir)))
+      (shell-comm)
+      (copy-file filename output t))
+    ;; Return file name.
+    output))
+
 
 ;;; Publishing Project 
 (setf org-publish-project-alist
@@ -157,10 +182,17 @@ Extension .html is added automatically."
         ("assets"
          :base-directory ,site-assets-dir
          :publishing-directory ,(concat site-publish-dir "/assets")
-         :base-extension "css\\|ttf\\|woff2\\|jpg\\|jpeg\\|gif\\|png\\|pdf\\|svg"
+         :base-extension "css\\|js\\|ttf\\|woff2\\|jpg\\|jpeg\\|gif\\|png\\|pdf\\|svg"
          :recursive t
 	 :publishing-function org-publish-attachment
          )
+        ;; ("sass-assets"
+        ;;  :base-directory ,site-assets-dir
+        ;;  :publishing-directory ,(concat site-publish-dir "/assets")
+        ;;  :base-extension "scss\\|sass"
+        ;;  :recursive t
+	;;  :publishing-function sass-compile-publish
+        ;;  )        
         ;; images
         ("content-images"
          :base-directory ,(concat site-source-dir "/images")

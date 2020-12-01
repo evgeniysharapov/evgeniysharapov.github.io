@@ -3482,4 +3482,70 @@ pre.src:before {
   text-decoration: underline;
 }
 
+.nav {
+  text-align: center;
+  border-bottom: 1px solid #666;
+  text-transform: uppercase;
+}
+.nav .nav-left {
+  float: left;
+}
+.nav .nav-right {
+  float: right;
+}
+.nav ul {
+  list-style: none;
+  padding: 0;
+}
+.nav ul li {
+  display: inline-block;
+  margin: 0;
+}
+.nav ul li a {
+  display: inline-block;
+}
+.nav ul li i {
+  font-size: 2rem;
+}
+
+footer .container {
+  width: 100%;
+  max-width: 740px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+footer .container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+footer .container li {
+  display: inline-block;
+  margin-right: 0.625em;
+}
+footer .container li a {
+  font-size: 1.125em;
+}
+footer .container li:last-child {
+  margin-right: 0;
+}
+footer .container .meta {
+  font-size: 0.8rem;
+  line-height: 1.8rem;
+  margin-top: 50px;
+  text-align: center;
+  color: #aaa;
+  padding: 15px 0;
+  border-top: 1px solid #e2e2e2;
+}
+
+.icon {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  stroke: currentColor;
+  position: relative;
+  top: 2px;
+}
+
 /*# sourceMappingURL=styles.css.map */

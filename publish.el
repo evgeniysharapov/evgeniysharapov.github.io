@@ -44,18 +44,13 @@ Extension .html is added automatically."
 (setf org-html-doctype "html5"
       org-html-html5-fancy t
       org-html-htmlize-output-type 'css
-      org-html-checkbox-type 'html
       org-html-divs '((preamble  "header" "top")
                       (content   "main"   "content")
                       (postamble "footer" "postamble"))
       org-html-container-element "section"
       org-html-metadata-timestamp-format "%Y-%m-%d"
       org-html-head-include-default-style nil
-      org-html-head-include-scripts nil
-      ;org-html-style-default (site-snippet-file-to-string "header.html")
-      ;org-html-scripts (site-snippet-file-to-string "scripts.html")
-      org-html-home/up-format "%s\n%s\n"
-)
+      org-html-head-include-scripts nil)
 
 ;;; Customizing Publishing Process
 (defun  blog-sitemap-function (title list)
@@ -144,7 +139,7 @@ Return output file name."
          :with-author t
          :with-toc nil         
          :htmlized-source t
-
+         
          :html-head ,(html "header")
          :html-preamble ,(html "nav")
          :html-postamble ,(html "footer")

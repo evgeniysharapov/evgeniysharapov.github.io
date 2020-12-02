@@ -12,6 +12,7 @@ $color-menu-background: white;
 $color-gray: #888;
 $color-darkgray: #444;
 $color-footer-border: #ac9e9e;
+$color-code-background: #f9f9f9;
 
 $color-text: $color-darkgray;
 $color-text-header: $color-darkgray;
@@ -102,6 +103,26 @@ h1, h2, h3 {
 }
 
 
+// ** Code and Text Elements
+pre.src {
+    line-height: 1;
+    padding-top: 0.25rem;
+    background-color: $color-code-background;
+}
+
+code {
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: $color-code-background;
+}
+
+kbd {
+    padding: 2px;
+    border: 1px solid $color-gray;
+    background-color: $color-code-background;
+    border-radius: 4px;
+}
+
 // ** Meta
 .article-info {
     margin-bottom: 2rem;
@@ -165,6 +186,7 @@ header#top {
     position: fixed;
     border-bottom: 1px solid $color-gray ;
     background: $color-menu-background;
+    padding-bottom: 1rem;
     .nav {
         flex-wrap: flex;
         display: flex;
@@ -185,8 +207,20 @@ header#top {
             a {
                 font-size: 2.25rem;
                 font-weight: bolder;
-                color: $color-text-header;
+                color: $color-gray;
                 text-decoration: none;
+
+                &:before {
+                    background-image: url("/assets/img/face-smallest-opt.png");
+                    background-size: 4rem 4rem;
+                    background-repeat: no-repeat;
+                    width: 4rem;
+                    height: 4rem;
+                    content: "";
+                    border-radius: 50%;
+                    position: absolute;
+                    margin-left: -4.5rem;
+                }
             }            
         }
         .nav-right {

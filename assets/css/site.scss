@@ -145,6 +145,57 @@ kbd {
     }
 }
 
+// ** Footnotes
+// footnotes in the text
+p sup {
+    background-color: $color-darkgray;
+    border-radius: 50%;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    top: -0.66rem;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    &:hover {
+        background-color: $color-gray;
+    }
+}
+
+// footnotes at the bottom
+#footnotes {
+    padding-left: 5rem;
+    padding-right: 4rem;
+
+    h2 {
+        padding-left: 1rem;
+        margin: 0 auto 0.5rem;
+        border-top: 1px solid $color-darkgray;        
+    }
+    #text-footnotes {
+        padding-left: 1rem;
+
+        .footdef {
+            line-height: 1;
+            p {
+                  margin: 0 0.5rem 1rem;
+            }
+            sup {
+                font-size: 1rem;
+                position: inherit;
+                a {
+                    color: $color-text;
+                    text-decoration: none;                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
 // * Tags
 
 .tag {

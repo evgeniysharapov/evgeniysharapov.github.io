@@ -1,7 +1,7 @@
 #+TITLE: Evgeniy Sharapov Homepage
 #+AUTHOR: Evgeniy Sharapov
 #+EMAIL: evgeniy.sharapov@gmail.com
-#+OPTIONS: tags:t toc:t
+#+OPTIONS: tags:t toc:nil title:nil
 
 * Introduction                                                            :c:
   :PROPERTIES:

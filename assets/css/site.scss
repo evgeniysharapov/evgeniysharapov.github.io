@@ -1,13 +1,47 @@
 @charset 'utf-8';
 
-// Fonts
-$headline-font-family: Montserrat, Helvetica, sans-serif; 
-$content-font-family:  Oswald, sans-serif;   
-$code-font-family:     Iosevka, monospace;
-
-// colors
+// * Colors
 $color-gray: #666;
 
+
+// * Fonts
+main {
+    font-family: Montserrat, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {        
+    font-family: Oswald, sans-serif;
+}
+
+pre, code {
+    font-family: Iosevka, monospace;
+}
+
+header {
+    font-family: Oswald, sans-serif;
+}
+
+// * Org-mode Elements
+.figure {
+    padding: 1rem;
+    p {
+        text-align: center;
+    }
+}
+
+// * Tags
+.tag {
+  padding: .2rem .6rem .3rem;
+  line-height: 1.5;
+  vertical-align: middle;
+  background-color: white;
+
+  span:before {
+      content: "#";
+  }
+}
+
+// * Navigation
 .nav {
     text-align: center;
     border-bottom: 1px solid $color-gray ;
@@ -36,13 +70,13 @@ $color-gray: #666;
     }
 }
 
+// * Footer
 footer {
     .container {
         width: 100%;
         max-width: 740px;
         padding: 0 20px;
         margin: 0 auto;
-
 
         ul {
             list-style: none;
@@ -74,11 +108,9 @@ footer {
 }
 
 .icon {
-    height: 1em;
-    width: 1em;
+    height: 2rem;
+    width: 2rem;
     display: inline-block;
-    stroke: currentColor;
-//    fill: none;
     position: relative;
     top: 2px;
 }

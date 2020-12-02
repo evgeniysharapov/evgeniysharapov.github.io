@@ -2,25 +2,14 @@ body {
     color: SystemWindowText;
     background-color: SystemWindow;
 }
-.org-bold {
-    /* bold */
-    font-weight: bold;
-}
-.org-bold-italic {
-    /* bold-italic */
-    font-weight: bold;
-    font-style: italic;
-}
+
 .org-border {
 }
 .org-buffer-menu-buffer {
     /* buffer-menu-buffer */
     font-weight: bold;
 }
-.org-builtin {
-    /* font-lock-builtin-face */
-    color: #0058B0;
-}
+
 .org-button {
     /* button */
     color: #3a5fcd;
@@ -75,16 +64,7 @@ body {
     /* comint-highlight-prompt */
     color: #0000cd;
 }
-.org-comment {
-    /* font-lock-comment-face */
-    color: #948072;
-    font-style: italic;
-}
-.org-comment-delimiter {
-    /* font-lock-comment-delimiter-face */
-    color: #948072;
-    font-style: italic;
-}
+
 .org-company-echo {
 }
 .org-company-echo-common {
@@ -197,10 +177,7 @@ body {
     /* completions-first-difference */
     font-weight: bold;
 }
-.org-constant {
-    /* font-lock-constant-face */
-    color: #009B9B;
-}
+
 .org-css-property {
     /* css-property */
     color: #720CAF;
@@ -438,10 +415,7 @@ body {
     color: #ff0000;
     font-weight: bold;
 }
-.org-doc {
-    /* font-lock-doc-face */
-    color: #A02D05;
-}
+
 .org-eldoc-highlight-function-argument {
     /* eldoc-highlight-function-argument */
     font-weight: bold;
@@ -628,10 +602,7 @@ body {
     /* fringe */
     background-color: #f2f2f2;
 }
-.org-function-name {
-    /* font-lock-function-name-face */
-    color: #0000ff;
-}
+
 .org-glyphless-char {
     /* glyphless-char */
     font-size: 60%;
@@ -1021,14 +992,8 @@ body {
     /* isearch-fail */
     background-color: #ffc1c1;
 }
-.org-italic {
-    /* italic */
-    font-style: italic;
-}
-.org-keyword {
-    /* font-lock-keyword-face */
-    color: #720CAF;
-}
+
+
 .org-lazy-highlight {
     /* lazy-highlight */
     background-color: #afeeee;
@@ -1610,10 +1575,7 @@ body {
     color: #ff0000;
     font-weight: bold;
 }
-.org-preprocessor {
-    /* font-lock-preprocessor-face */
-    color: #0058B0;
-}
+
 .org-query-replace {
     /* query-replace */
     color: #b0e2ff;
@@ -1624,14 +1586,7 @@ body {
     font-weight: bold;
     text-decoration: underline;
 }
-.org-regexp-grouping-backslash {
-    /* font-lock-regexp-grouping-backslash */
-    font-weight: bold;
-}
-.org-regexp-grouping-construct {
-    /* font-lock-regexp-grouping-construct */
-    font-weight: bold;
-}
+
 .org-region {
     /* region */
     background-color: #de71f863de71;
@@ -1712,10 +1667,6 @@ body {
 .org-speedbar-tag {
     /* speedbar-tag-face */
     color: #a52a2a;
-}
-.org-string {
-    /* font-lock-string-face */
-    color: #A02D05;
 }
 .org-success {
     /* success */
@@ -1834,14 +1785,8 @@ body {
     color: #047B0D;
     font-style: italic;
 }
-.org-type {
-    /* font-lock-type-face */
-    color: #228b22;
-}
-.org-underline {
-    /* underline */
-    text-decoration: underline;
-}
+
+
 .org-undo-tree-visualizer-active-branch {
     /* undo-tree-visualizer-active-branch-face */
     color: #000000;
@@ -1863,10 +1808,7 @@ body {
     /* undo-tree-visualizer-unmodified-face */
     color: #00ffff;
 }
-.org-variable-name {
-    /* font-lock-variable-name-face */
-    color: #047B0D;
-}
+
 .org-variable-pitch {
 }
 .org-vc-conflict-state {
@@ -1894,11 +1836,7 @@ body {
     color: #ff8c00;
     font-weight: bold;
 }
-.org-warning-1 {
-    /* font-lock-warning-face */
-    color: #ff0000;
-    font-weight: bold;
-}
+
 .org-which-func {
     /* which-func */
     color: #ffa07a;

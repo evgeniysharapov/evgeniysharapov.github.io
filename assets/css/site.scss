@@ -2,7 +2,7 @@
 
 // * Colors
 $color-gray: #666;
-
+$color-darkgray: #666;
 
 // * Fonts
 html {
@@ -33,17 +33,19 @@ header h1 {
 }
 .outline-2 {
     padding-left: 5rem;
-    padding-righ: 5rem;
-    margin-bottom: 5rem;    
+    padding-right: 5rem;
+    margin-bottom: 5rem;
+    h2 {
+        margin-bottom: 0;
+    }
 }
 
 // ** Meta
 .article-info {
+    margin-bottom: 2rem;
     .date{
         color: $color-gray;
-        font-size: 0.75rem;
-        margin-top: -3rem;
-        float: right;
+        font-weight: bolder;
         p {
             vertical-align: text-top;
             display: inline;
@@ -72,9 +74,26 @@ header h1 {
   }
 }
 
-.outline-2 h2 .tag {
+@mixin tag {
     vertical-align: top-text;
+    float: right;
+    font-size: 1rem;
+    font-family: Montserrat, Helvetica, sans-serif;
+    font-weight: lighter;
+    color: $color-darkgray;
+    span {
+        margin-right: 0.5rem;
+    }
 }
+
+.outline-2 {
+    h2 .tag {
+        @include tag;
+    }
+    h3 .tag {
+        @include tag;
+    }
+} 
 
 // * Navigation
 .nav {
@@ -107,37 +126,43 @@ header h1 {
 
 // * Footer
 footer {
+    font-family: Montserrat, Helvetica, sans-serif;
+    border-top: 1px solid $color-darkgray;
+    padding-top: 2rem;
     .container {
         width: 100%;
         max-width: 740px;
-        padding: 0 20px;
         margin: 0 auto;
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0
-        }
-
-        li {
-            display: inline-block;
-            margin-right: .625em;
-            a {
-                font-size: 1.125em
+        nav {
+            text-align: center;
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0
             }
-            &:last-child {
-            margin-right: 0
+
+            li {
+                display: inline-block;
+                margin-right: .625em;
+                a {
+                    font-size: 1.125em
+                }
+                &:last-child {
+                    margin-right: 0
+                }
             }
         }
 
         .meta {
             font-size: 0.8rem;
-            line-height: 1.8rem;
             margin-top: 50px;
             text-align: center;
             color: #aaa;
             padding: 15px 0;
-            border-top: 1px solid #e2e2e2;            
+            border-top: 1px solid #e2e2e2;
+            a {
+                color: $color-darkgray;
+            }
         }
     }
 }

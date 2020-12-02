@@ -22,7 +22,7 @@
   "Format for displaying publish dates.")
 (defvar sitemap-date-format "Published %d %b %d %Y"
   "Format dates for the list of blog posts (sitemap).")
-(defvar blog-index-date-format "%B %e, %Y"
+(defvar blog-index-date-format "%b %e, %Y"
   "Format dates for list of published blog posts.")
 
 ;;;; User

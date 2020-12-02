@@ -5,6 +5,9 @@ $color-gray: #666;
 
 
 // * Fonts
+html {
+    line-height: 1.5;
+}
 main {
     font-family: Montserrat, Helvetica, sans-serif;
 }
@@ -22,6 +25,34 @@ header {
 }
 
 // * Org-mode Elements
+// ** Page Structure
+header h1 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    margin-bottom: 2rem;
+}
+.outline-2 {
+    padding-left: 5rem;
+    padding-righ: 5rem;
+    margin-bottom: 5rem;    
+}
+
+// ** Meta
+.article-info {
+    .date{
+        color: $color-gray;
+        font-size: 0.75rem;
+        margin-top: -3rem;
+        float: right;
+        p {
+            vertical-align: text-top;
+            display: inline;
+            text-transform: capitalize;
+        }
+    }
+}
+
+// ** Figures
 .figure {
     padding: 1rem;
     p {
@@ -30,15 +61,19 @@ header {
 }
 
 // * Tags
+
 .tag {
   padding: .2rem .6rem .3rem;
   line-height: 1.5;
   vertical-align: middle;
   background-color: white;
-
   span:before {
       content: "#";
   }
+}
+
+.outline-2 h2 .tag {
+    vertical-align: top-text;
 }
 
 // * Navigation

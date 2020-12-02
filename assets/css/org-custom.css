@@ -3,6 +3,7 @@
  ----------------------------------------------------------------------*/
 :root {
     --border: #ccc;
+    --shadow: #eee;
     --lang-background: white;
     --lang-border: black;
 }
@@ -96,8 +97,8 @@
 /* ** Source Code 
  */
 pre {
-    border: 1px solid var(--color-border);
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid var(--border);
+    box-shadow: 3px 3px 3px var(--shadow);
     padding: 8pt;
     font-family: monospace;
     overflow: auto;

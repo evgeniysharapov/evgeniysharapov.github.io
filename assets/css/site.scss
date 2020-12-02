@@ -1,27 +1,74 @@
 @charset 'utf-8';
 
+// * Fonts
+$font-header: Oswald, sans-serif;
+$font-content: Montserrat, Helvetica, sans-serif;
+$font-mono: Iosevka, monospace;
+    
+    
 // * Colors
-$color-gray: #666;
-$color-darkgray: #666;
+$color-menu-background: white;
+
+$color-gray: #888;
+$color-darkgray: #444;
+$color-footer-border: #ac9e9e;
+
+$color-text: $color-darkgray;
+$color-text-header: $color-darkgray;
+
+// * Animations
+@mixin underline-from-center() {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 2px;
+    bottom: 0;
+    left: 51%;
+    right: 51%;
+    background: $color-darkgray;
+    transition-duration: 0.2s;
+    transition-property: right, left;
+    transition-timing-function: ease-out;
+  }
+
+  &.active,
+  &:active,
+  &:focus,
+  &:hover {
+    &:before {
+      right: 0;
+      left: 0;
+    }
+  }
+}
 
 // * Fonts
 html {
     line-height: 1.5;
 }
 main {
-    font-family: Montserrat, Helvetica, sans-serif;
+    font-family: $font-content;
 }
 
 h1, h2, h3, h4, h5, h6 {        
-    font-family: Oswald, sans-serif;
+    font-family: $font-header;
 }
 
 pre, code {
-    font-family: Iosevka, monospace;
+    font-family: $font-mono;
 }
 
 header {
-    font-family: Oswald, sans-serif;
+    font-family: $font-header;
 }
 
 // * Org-mode Elements
@@ -31,6 +78,12 @@ header h1 {
     padding-right: 5rem;
     margin-bottom: 2rem;
 }
+
+main {
+    margin-top: 6rem;
+    max-width: 72rem;
+}
+
 .outline-2 {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -39,6 +92,15 @@ header h1 {
         margin-bottom: 0;
     }
 }
+
+h1, h2, h3 {
+    a {
+        text-decoration: none;
+        color: $color-text-header;
+        @include underline-from-center;
+    }
+}
+
 
 // ** Meta
 .article-info {
@@ -78,7 +140,7 @@ header h1 {
     vertical-align: top-text;
     float: right;
     font-size: 1rem;
-    font-family: Montserrat, Helvetica, sans-serif;
+    font-family: $font-content;
     font-weight: lighter;
     color: $color-darkgray;
     span {
@@ -96,38 +158,65 @@ header h1 {
 } 
 
 // * Navigation
-.nav {
-    text-align: center;
+header#top {
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    position: fixed;
     border-bottom: 1px solid $color-gray ;
-    text-transform: uppercase;
-
-    .nav-left {
-        float: left;
-    }
-    .nav-right {
-        float: right;
-    }    
-
-    ul {
-        list-style: none;
-        padding: 0;
-        li {
-            display: inline-block;
-            margin: 0;
+    background: $color-menu-background;
+    .nav {
+        flex-wrap: flex;
+        display: flex;
+        max-width: 56rem;
+        width: 100%;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        
+        .nav-left {
+            padding-left: 1rem;
             a {
-                display: inline-block;
-            }
-            i {
-                font-size: 2rem;
-            }                   
+                font-size: 2.25rem;
+                font-weight: bolder;
+                color: $color-text-header;
+                text-decoration: none;
+            }            
         }
+        .nav-right {
+            ul {
+                list-style: none;
+                padding: 0;
+                li {
+                    display: inline-block;
+                    margin: 0;
+                    a {                
+                        font-family: $font-content;
+                        font-weight: bold;
+                        color: $color-darkgray;
+                        display: inline-block;
+                        text-decoration: none;
+                        padding-right: 0.5rem;
+                        @include underline-from-center;
+                    }
+                    i {
+                        font-size: 2rem;
+                    }                   
+                }
+            }
+        }            
     }
 }
-
 // * Footer
 footer {
     font-family: Montserrat, Helvetica, sans-serif;
-    border-top: 1px solid $color-darkgray;
+    border-top: 1px solid $color-footer-border;
     padding-top: 2rem;
     .container {
         width: 100%;
@@ -138,7 +227,7 @@ footer {
             ul {
                 list-style: none;
                 padding: 0;
-                margin: 0
+                margin: 0;
             }
 
             li {

@@ -844,13 +844,16 @@ header h1 {
 }
 
 main {
-  margin-top: 6rem;
-  max-width: 72rem;
+  margin-top: 7rem;
+  max-width: 56rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .outline-2 {
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin-bottom: 5rem;
 }
 .outline-2 h2 {

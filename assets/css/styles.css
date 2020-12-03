@@ -1139,6 +1139,7 @@ footer .container .meta a {
   display: inline-block;
   position: relative;
   top: 2px;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -340,12 +340,13 @@ footer {
         }
     }
 }
-
+// ** Social Icons
 .icon {
     height: 2rem;
     width: 2rem;
     display: inline-block;
     position: relative;
     top: 2px;
+    pointer-events: none; // this is important to embed SVGs into <A> and have it clickable
 }
 

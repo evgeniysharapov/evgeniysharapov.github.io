@@ -1,7 +1,7 @@
 ;;; package --- Publishing website evgeniysharapov.com
 ;;
 ;;; Commentary:
-;;   This is a custom Emacs Lisp script 
+;;   This is a custom Emacs Lisp script
 ;;; Code:
 
 (require 'org)
@@ -142,8 +142,8 @@ Return output file name."
          
          :html-head ,(html "header")
          :html-preamble ,(html "nav")
-         :html-postamble ,(html "footer")
-         )
+         :html-postamble ,(html "footer"))
+        
         ; blog content has sitemap that is a list of posts
         ("blog"
          :base-directory ,(concat site-source-dir "/blog")
@@ -170,8 +170,7 @@ Return output file name."
          :sitemap-sort-files anti-chronologically
          :sitemap-function blog-sitemap-function
          :sitemap-format-entry blog-sitemap-format-entry
-         :sitemap-date-format "Published %d %b %d %Y"
-         )
+         :sitemap-date-format "Published %d %b %d %Y")
 
         ;; assets, css/fonts/js
         ("assets"
@@ -179,8 +178,7 @@ Return output file name."
          :publishing-directory ,(concat site-publish-dir "/assets")
          :base-extension "css\\|js\\|ttf\\|woff2\\|jpg\\|jpeg\\|gif\\|png\\|pdf\\|svg"
          :recursive t
-	 :publishing-function org-publish-attachment
-         )
+	 :publishing-function org-publish-attachment)
         ;; ("sass-assets"
         ;;  :base-directory ,site-assets-dir
         ;;  :publishing-directory ,(concat site-publish-dir "/assets")
@@ -194,5 +192,6 @@ Return output file name."
          :publishing-directory ,(concat site-publish-dir "/images")
          :base-extension "jpg\\|jpeg\\|gif\\|png\\|pdf\\|svg"
          :recursive t
-	 :publishing-function org-publish-attachment
-         )))
+	 :publishing-function org-publish-attachment)
+        )
+      )

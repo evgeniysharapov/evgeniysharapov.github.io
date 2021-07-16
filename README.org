@@ -1,0 +1,24 @@
+#+TITLE: Personal Website
+#+AUTHOR: Evgeniy N. Sharapov
+
+* About 
+
+  Personal web-site made as a static web-site generated using =org-mode=
+
+* Building 
+
+  To build just run =make=
+
+
+* Running Locally
+
+  To run it locally you could use any simple HTTP server that would serve static content
+
+  #+begin_src shell
+    python -m http.server 8000 --directory public
+  #+end_src
+
+  This will kick off web-server on port 8000
+
+
+* Deployment 

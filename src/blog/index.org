@@ -1,30 +1,30 @@
 #+TITLE: Blog
 
-**   [[file:test.org][Thius is a test page]]  
-#+BEGIN_article-info
-#+BEGIN_date
+** [[file:page-with-image.org][Another Page With Tags and Image]]  :laptop:car:pc:sailboat:
+#+begin_article-info
+#+begin_date
 Nov 17, 2020
-#+END_date
-#+END_article-info
-#+INCLUDE: "test.org::#preview"  :only-contents t
-
-[[file:test.org][Read more...]]
-**   [[file:page-with-image.org][Another Page With Tags and Image]]  :laptop:car:pc:sailboat:
-#+BEGIN_article-info
-#+BEGIN_date
-Nov 17, 2020
-#+END_date
-#+END_article-info
-#+INCLUDE: "page-with-image.org::#preview"  :only-contents t
+#+end_date
+#+end_article-info
+#+include: "page-with-image.org::#preview"  :only-contents t
 
 [[file:page-with-image.org][Read more...]]
-**   [[file:another.org][Another Page]]  
-#+BEGIN_article-info
-#+BEGIN_date
+** [[file:test.org][Thius is a test page]]  
+#+begin_article-info
+#+begin_date
 Nov 17, 2020
-#+END_date
-#+END_article-info
-#+INCLUDE: "another.org::#preview"  :only-contents t
+#+end_date
+#+end_article-info
+#+include: "test.org::#preview"  :only-contents t
+
+[[file:test.org][Read more...]]
+** [[file:another.org][Another Page]]  
+#+begin_article-info
+#+begin_date
+Nov 17, 2020
+#+end_date
+#+end_article-info
+#+include: "another.org::#preview"  :only-contents t
 
 [[file:another.org][Read more...]]
 

@@ -26,12 +26,12 @@
 
 * Some source code
 
-  But if the package contents weren't up to date, a separate @@html:<kbd>M-x</kbd>@@ =package-refresh-contents= had 
-to be *triggered*, which was an /annoying/
-  overhead. Now =counsel-package= will look at the _time stamps_ of the
-  appropriate =archive-contents= files, and call
-  =package-refresh-contents= if the timestamp is ~outdated~ by more than 4
-  hours.
+  But if the package contents weren't up to date, a separate
+@@html:<kbd>M-x</kbd>@@ =package-refresh-contents= had to be
+*triggered*, which was an /annoying/ overhead. Now =counsel-package=
+will look at the _time stamps_ of the appropriate =archive-contents=
+files, and call =package-refresh-contents= if the timestamp is
+~outdated~ by more than 4 hours.
 
   #+begin_src emacs-lisp
     (require 'ox-rss)

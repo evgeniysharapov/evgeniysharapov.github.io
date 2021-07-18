@@ -892,20 +892,26 @@ h1 a.active:before, h1 a:active:before, h1 a:focus:before, h1 a:hover:before, h2
 pre.src {
   line-height: 1;
   padding-top: 0.25rem;
-  background-color: #f9f9f9;
+  background-color: #eee;
 }
 
 code {
   padding-left: 2px;
   padding-right: 2px;
-  background-color: #f9f9f9;
+  background-color: #eee;
+  font-size: 1.1em;
 }
 
 kbd {
   padding: 2px;
   border: 1px solid #888;
-  background-color: #f9f9f9;
+  background-color: #eee;
   border-radius: 4px;
+  font-size: 1.1em;
+}
+
+samp {
+  font-size: 1.1em;
 }
 
 .article-info {
@@ -1116,7 +1122,7 @@ footer .container nav ul {
 }
 footer .container nav li {
   display: inline-block;
-  margin-right: 0.625em;
+  margin-right: 0.1rem;
 }
 footer .container nav li a {
   font-size: 1.125em;

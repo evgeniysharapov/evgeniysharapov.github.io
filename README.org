@@ -7,8 +7,21 @@
 
 * Building 
 
+  First make sure that you generated CSS out of SASS
+
+  #+begin_src shell
+    sass assets/css/styles.scss assets/css/styles.css
+  #+end_src
+
   To build just run =make=
 
+
+  When doing development it's helpful to run a =watch= command
+
+  #+begin_src shell
+    watch -n 1 sass assets/css/styles.scss assets/css/styles.css && rm -rf ~/.org-timestamps && make
+  #+end_src
+  
 
 * Running Locally
 

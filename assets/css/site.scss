@@ -12,7 +12,7 @@ $color-menu-background: white;
 $color-gray: #888;
 $color-darkgray: #444;
 $color-footer-border: #ac9e9e;
-$color-code-background: #f9f9f9;
+$color-code-background: #eee;
 
 $color-text: $color-darkgray;
 $color-text-header: $color-darkgray;
@@ -119,6 +119,7 @@ code {
     padding-left: 2px;
     padding-right: 2px;
     background-color: $color-code-background;
+    font-size: 1.1em;
 }
 
 kbd {
@@ -126,7 +127,13 @@ kbd {
     border: 1px solid $color-gray;
     background-color: $color-code-background;
     border-radius: 4px;
+    font-size: 1.1em;
 }
+
+samp {
+    font-size: 1.1em;    
+}
+
 
 // ** Meta
 .article-info {
@@ -235,6 +242,7 @@ p sup {
 } 
 
 // * Navigation
+
 header#top {
     width: 100%;
     top: 0;
@@ -322,7 +330,7 @@ footer {
 
             li {
                 display: inline-block;
-                margin-right: .625em;
+                margin-right: 0.1rem;
                 a {
                     font-size: 1.125em
                 }

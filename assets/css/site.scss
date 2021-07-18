@@ -1,5 +1,30 @@
 @charset 'utf-8';
 
+// * Screen Sizes
+$phone-width: 411px;
+$tablet-width: 731px;
+$desktop-width: 1024px;
+
+
+@mixin phone {
+  @media (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
 // * Fonts
 $font-header: Oswald, sans-serif;
 $font-content: Montserrat, Helvetica, sans-serif;
@@ -242,7 +267,6 @@ p sup {
 } 
 
 // * Navigation
-
 header#top {
     width: 100%;
     top: 0;
@@ -285,8 +309,46 @@ header#top {
                     position: absolute;
                     margin-left: -4.5rem;
                 }
-            }            
+
+            }                   
         }
+
+        @include phone {
+            .nav-left {
+                padding-left: 1rem;
+                padding-top: 4rem;
+                a {
+                    font-size: 1rem;
+                    font-weight: bolder;
+                    color: $color-gray;
+                    text-decoration: none;
+
+                    &:before {
+                        background-image: url("/assets/img/face-smallest-opt.png");
+                        background-size: 4rem 4rem;
+                        background-repeat: no-repeat;
+                        width: 4rem;
+                        height: 4rem;
+                        content: "";
+                        border-radius: 50%;
+                        position: absolute;
+                        margin-left: 1rem;
+                        margin-top: -4rem;
+                    }
+
+                }                   
+            }
+        }
+
+            // @include tablet {
+            //     font-size: 18px;
+            // }
+
+            // @include desktop {
+            //     font-size: 20px;
+            // }
+                
+        
         .nav-right {
             ul {
                 list-style: none;
@@ -309,6 +371,18 @@ header#top {
                 }
             }
         }            
+    }
+
+    @include phone {
+        .nav {
+            padding-top: 0.1rem;
+        }
+    }
+}
+
+@include phone {
+    header#top {
+        padding-bottom: 0rem;
     }
 }
 // * Footer

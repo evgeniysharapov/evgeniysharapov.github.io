@@ -99,7 +99,6 @@ Same parameters ENTRY, STYLE and PROJECT as in `org-publish-sitemap-default-entr
              entry
              entry))))
 
-
 (defun sass-compile-publish (_plist filename pub-dir)
   "Publish an scss/sass file.
 

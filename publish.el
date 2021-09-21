@@ -60,9 +60,9 @@ Extension .html is added automatically."
    (list
     (concat "#+TITLE: " title)
     ;; 9.3 sort of broke API
-    (if (string-prefix-p "9.3" (org-version))
-        (org-list-to-subtree list nil '(:istart "** "))
-      (org-list-to-subtree list '(:istart "** ")))
+    (if (version< org-version "9.3")
+        (org-list-to-subtree list '(:istart "** "))
+      (org-list-to-subtree list nil '(:istart "** ")))
     "
 #+OPTIONS: title:nil num:nil tags:t")
    "\n\n"))

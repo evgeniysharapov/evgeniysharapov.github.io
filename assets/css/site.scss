@@ -348,14 +348,11 @@ header#top {
             }
         }
 
-            // @include tablet {
-            //     font-size: 18px;
-            // }
-
-            // @include desktop {
-            //     font-size: 20px;
-            // }
-                
+        @include tablet {
+            .nav-left {
+                padding-left: 5rem;
+            }
+        }               
         
         .nav-right {
             ul {

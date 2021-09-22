@@ -136,6 +136,7 @@ Return output file name."
          :section-numbers nil  ; don't create numbered sections
          :headline-level 4
          :with-author t
+         :with-date t
          :with-toc nil         
          :htmlized-source t
          
@@ -155,6 +156,7 @@ Return output file name."
          ;; Content of each file
          :section-numbers nil  ; don't create numbered sections
          :with-author t
+         :with-date t
          :with-toc nil         ; don't create a table of contents
          :htmlized-source t
 

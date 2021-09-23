@@ -2,6 +2,13 @@
 #+AUTHOR: Evgeniy N. Sharapov
 #+DATE: <2021-07-18 Sun>
 
+:HISTORY:
+Created {{{date(%Y-%m-%d)}}}
+Updated {{{modification-time(%Y-%m-%d)}}}
+:END:
+
+* Introduction
+  
 I have been using [[https://www.gnu.org/software/emacs/][Emacs]] since early 2000-s. Some years saw very heavy
 and extensive use and some years were quite light. By no means I
 consider myself an expert or even a pro when it comes to use and
@@ -9,8 +16,8 @@ configuring of [[https://www.gnu.org/software/emacs/][Emacs]]. It feels that thi
 around mid 2000-s, but has been surging back to wider adoption. Which
 leads to plenty of resources related to [[https://www.gnu.org/software/emacs/][Emacs]] on the internets. 
 
-One feature of this editor, which attracts quite some number of new users, is an [[https://orgmode.org/][Org Mode]].
-To quote their web-site 
+One feature of this editor, which attracts quite some number of new
+users, is an [[https://orgmode.org/][Org Mode]]. To quote their web-site
 
 #+begin_quote
 Org mode is for keeping notes, maintaining to-do lists, planning
@@ -18,4 +25,6 @@ projects, authoring documents, computational notebooks, literate
 programming and more — in a fast and effective plain text system.
 #+end_quote
 
-One of the things not mentioned here is ability of Org Mode to publish or export notes from Org Mode format
+One of the things not mentioned here is ability of Org Mode to publish
+or export notes from Org Mode format.
+

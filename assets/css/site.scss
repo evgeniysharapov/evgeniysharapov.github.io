@@ -181,6 +181,25 @@ blockquote {
     }
 }
 
+.history {
+    margin: 0;
+    padding-top: 0;
+    float: left;
+    font-style: italic;
+    font-size: small;
+    p {
+        margin-top: 0;
+    }
+}
+.created, .updated {
+    padding-left: 3rem;
+}
+
+section {
+    // this is to ensure that floating elements do not mess up the sections
+    clear: left;
+}
+
 // ** Figures
 .figure {
     padding: 1rem;

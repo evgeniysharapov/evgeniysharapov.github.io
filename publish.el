@@ -117,6 +117,14 @@ Return output file name."
     ;; Return file name.
     output))
 
+(defun my-html-format-drawer-function (name contents)
+  "Turn drawer into an HTML element. In particular it works on :HISTORY: drawer.
+NAME name of the drawer, CONTENTS value of the drawer."
+  (pcase (upcase name)
+    ("CREATED" (format "<div class='history created'>%s</div>" contents))
+    ("UPDATED" (format "<div class='history updated'>%s</div>" contents))
+    (_  contents)))
+
 
 ;;; Publishing Project 
 (setf org-publish-project-alist
@@ -133,6 +141,11 @@ Return output file name."
          :exclude "^blog"
 
          ;; Content of each file
+         :with-drawers t
+         :with-properties t
+
+         :html-format-drawer-function my-html-format-drawer-function
+
          :section-numbers nil  ; don't create numbered sections
          :headline-level 4
          :with-author t

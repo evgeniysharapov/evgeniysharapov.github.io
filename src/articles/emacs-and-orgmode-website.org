@@ -2,8 +2,10 @@
 #+AUTHOR: Evgeniy N. Sharapov
 #+DATE: <2021-07-18 Sun>
 
-:HISTORY:
+:Created:
 Created {{{date(%Y-%m-%d)}}}
+:END:
+:Updated:
 Updated {{{modification-time(%Y-%m-%d)}}}
 :END:
 

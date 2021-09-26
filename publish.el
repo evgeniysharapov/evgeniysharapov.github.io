@@ -34,7 +34,7 @@
 
 ;;; Utilities
 (defun html (filename)
-  "Read a file FILENAME from directory src/_html into a string. 
+  "Read a file FILENAME from directory src/_html into a string.
 Extension .html is added automatically."
   (with-temp-buffer
     (insert-file-contents (concat base-dir "src/_html/" filename ".html"))
@@ -52,9 +52,17 @@ Extension .html is added automatically."
       org-html-head-include-default-style nil
       org-html-head-include-scripts nil)
 
+;;; Tags page build up
+(defun tags-sitemap-function (title list)
+  (message "tags page"))
+
+(defun tags-sitemap-format-entry (entry style project)
+  (message "tag each entry"))
+
 ;;; Customizing Publishing Process
 (defun  blog-sitemap-function (title list)
-  "This is a replaced for `org-publish-sitemap-default'."
+  "This is a replacement for `org-publish-sitemap-default'.
+Arguments TITLE and LIST are exactly the same"
   (mapconcat
    'identity
    (list
@@ -69,7 +77,6 @@ Extension .html is added automatically."
 
 (defun tagify (s)
   "Convert given string S into a string that represents Org tags.
-
 So the S is split into parts and then joined into a string with ':' character."
   (let ((tags (split-string s "[ ,;]+" 'omit-nulls "trim")))
     (if tags (concat ":" (mapconcat 'identity tags ":") ":")
@@ -77,7 +84,6 @@ So the S is split into parts and then joined into a string with ':' character."
 
 (defun  blog-sitemap-format-entry (entry style project)
   "Format each entry in blog index.
-
 Same parameters ENTRY, STYLE and PROJECT as in `org-publish-sitemap-default-entry'."
   (when (not (directory-name-p entry))
     (concat
@@ -143,14 +149,13 @@ NAME name of the drawer, CONTENTS value of the drawer."
          ;; Content of each file
          :with-drawers t
          :with-properties t
-
          :html-format-drawer-function my-html-format-drawer-function
-
          :section-numbers nil  ; don't create numbered sections
          :headline-level 4
          :with-author t
          :with-date t
-         :with-toc nil         
+         :with-tags nil
+         :with-toc nil
          :htmlized-source t
          
          :html-head ,(html "header")
@@ -171,6 +176,7 @@ NAME name of the drawer, CONTENTS value of the drawer."
          :with-author t
          :with-date t
          :with-toc nil         ; don't create a table of contents
+         :with-tags nil
          :htmlized-source t
 
          :html-head ,(html "header-blog")

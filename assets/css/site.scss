@@ -1,10 +1,17 @@
+// -*- eval: (outline-minor-mode 1); -*-
 @charset 'utf-8';
 
 // * Screen Sizes
+$small-phone-width: 360px;
 $phone-width: 411px;
 $tablet-width: 731px;
 $desktop-width: 1024px;
 
+@mixin smallphone {
+  @media (min-width: #{$small-phone-width}) and (max-width: #{$phone-width - 1px}) {
+    @content;
+  }
+}
 
 @mixin phone {
   @media (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
@@ -300,14 +307,40 @@ header#top {
     position: fixed;
     border-bottom: 1px solid $color-gray ;
     background: $color-menu-background;
-    padding-bottom: 1rem;
+
+    @include smallphone {
+        padding-bottom: 0rem;
+    }
+    @include phone {
+        padding-bottom: 1rem;
+    }
+    @include tablet {
+        padding-bottom: 1rem;
+    }
+    @include desktop {
+        padding-bottom: 1rem;
+    }
+    
     .nav {
         flex-wrap: flex;
         display: flex;
         max-width: 56rem;
         width: 100%;
         padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
+
+        @include smallphone {
+            padding-bottom: 0rem;
+        }
+        @include phone {
+            padding-bottom: 0.75rem;
+        }
+        @include tablet {
+            padding-bottom: 0.75rem;
+        }
+        @include desktop {
+            padding-bottom: 0.75rem;
+        }
+        
         margin-top: 0;
         margin-left: auto;
         margin-right: auto;
@@ -339,6 +372,57 @@ header#top {
             }                   
         }
 
+        @include smallphone {
+            .nav-left {
+                padding-left: 1rem;
+                padding-top: 4rem;
+                a {                    
+                    font-size: 0rem;
+                    font-weight: bolder;
+                    color: $color-gray;
+                    text-decoration: none;
+
+                    &:before {
+                        background-image: url("/assets/img/face-smallest-opt.png");
+                        background-size: 4rem 4rem;
+                        background-repeat: no-repeat;
+                        width: 4rem;
+                        height: 4rem;
+                        content: "";
+                        border-radius: 50%;
+                        position: absolute;
+                        margin-left: 1rem;
+                        margin-top: -4rem;
+                    }
+
+                }                   
+            }
+            .nav-right {
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    li {
+                        display: inline-block;
+                        margin: 0;
+                        a {
+                            font-size: smaller;
+                            font-family: $font-content;
+                            font-weight: bold;
+                            color: $color-darkgray;
+                            display: inline-block;
+                            text-decoration: none;
+                            padding-right: 0.5rem;
+                            @include underline-from-center;
+                        }
+                        i {
+                            font-size: 2rem;
+                        }                   
+                    }
+                }
+            }            
+        }
+        
+        
         @include phone {
             .nav-left {
                 padding-left: 1rem;

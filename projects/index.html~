@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-09-24 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Evgeniy Sharapov">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald&display=swap" />
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/fonts/iosevka.css"/>
+</head>
+<body>
+<header id="top" class="status">
+<div class="nav">
+  <div class="nav-left">
+    <a href="/">Evgeniy Sharapov</a>
+  </div>
+  <div class="nav-right">
+    <ul>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/articles/">Articles</a></li>
+      <li><a href="/about/">About</a></li>
+    </ul>
+  </div>
+</div>
+</header>
+<main id="content">
+<header>
+<h1 class="title">Projects</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6d21bd7">Projects</a></li>
+<li><a href="#orgb61b254">Links</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org6d21bd7" class="outline-2">
+<h2 id="org6d21bd7">Projects</h2>
+<div class="outline-text-2" id="text-org6d21bd7">
+<p>
+THis is my projects list
+</p>
+</div>
+</section>
+
+<section id="outline-container-orgb61b254" class="outline-2">
+<h2 id="orgb61b254">Links</h2>
+<div class="outline-text-2" id="text-orgb61b254">
+<p>
+Here are some links
+</p>
+
+
+<blockquote>
+<p>
+THis is a quote 
+</p>
+</blockquote>
+
+
+<p>
+and adding some exampels 
+</p>
+
+<pre class="example" id="org5c84f13">
+This is an example 
+ I ignore
+</pre>
+
+<p>
+With the endnotes CTAN package endnotes can be printed to the end of
+the document <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.
+</p>
+
+<p>
+With the endnotes CTAN package endnotes can be printed to the end.
+ofWith the endnotes CTAN package endnotes can be printed to the end.
+ofWith the endnotes CTAN package endnotes can be printed to the end.
+ofWith the endnotes CTAN package endnotes can be printed to the end of
+With the endnotes CTAN package endnotes can be printed to the end of
+the document <sup><a id="fnr.1.100" class="footref" href="#fn.1">1</a></sup>.
+</p>
+
+<p>
+You will need to use the LaTeX-package called endnotes from your org
+document. You will need to use the LaTeX-package called endnotes from
+your org document. You will need to use the LaTeX-package called
+endnotes from your org document. You will need to use the
+LaTeX-package called endnotes from your org document. You will <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>  need to
+use the LaTeX-package called endnotes from your org document. You will
+need to use the LaTeX-package called endnotes from your org document.
+</p>
+</div>
+</section>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+This is a footnote of note.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+This is a another footnote 
+</p></div></div>
+
+
+</div>
+</div></main>
+<footer id="postamble" class="status">
+<div class="container">
+  <nav aria-label="Social">
+    <ul>
+      <li>
+        <a href="https://github.com/evgeniysharapov" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/github.svg" class="icon">
+          </object>
+        </a>        
+      </li>
+      <li>
+        <a href="https://hg.sr.ht/~evgeniysharapov" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/srht.svg" class="icon">
+          </object>
+        </a>        
+      </li>
+      <li>
+        <a href="https://bitbucket.com/evgeniysharapov" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/bitbucket.svg" class="icon">
+          </object>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/evgeniysharapov" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/twitter.svg" class="icon">
+          </object>          
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/evgeniysharapov/" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/linkedin.svg" class="icon">
+          </object>                    
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/c/EvgeniySharapov" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/youtube.svg" class="icon">
+          </object>                    
+        </a>
+      </li>
+      <li>
+        <a href="mailto:evgeniy.sharapov.at.gmail.com" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/email.svg" class="icon">
+          </object>                              
+        </a>        
+      </li>
+
+
+    </ul>
+  </nav>
+  <div class="meta">
+    Copyright 2013 - 2020 Evgeniy Sharapov (<a href="https://validator.w3.org/check?uri=referer">Validate</a> HTML).<br>
+    Created 2021-09-24 <br>
+    Last updated 2021-03-07. <br>
+    Built with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.0.50 (<a href="https://orgmode.org">Org</a> mode 9.4.4).
+  </div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-09-24 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Another Page With Tags and Image</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Evgeniy N. Sharapov">
+<meta name="keywords" content="laptop car pc sailboat">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald&display=swap" />
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/fonts/iosevka.css"/>
+</head>
+<body>
+<header id="top" class="status">
+<div class="nav">
+  <div class="nav-left">
+    <a href="/">Evgeniy Sharapov</a>
+  </div>
+  <div class="nav-right">
+    <ul>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/articles/">Articles</a></li>
+      <li><a href="/about/">About</a></li>
+    </ul>
+  </div>
+</div>
+</header>
+<main id="content">
+<header>
+<h1 class="title">Another Page With Tags and Image</h1>
+</header>
+<section id="outline-container-orge2342ac" class="outline-2">
+<h2 id="orge2342ac">This is a Page main Heading</h2>
+<div class="outline-text-2" id="text-orge2342ac">
+</div>
+<div id="outline-container-preview" class="outline-3">
+<h3 id="preview">First Things First</h3>
+<div class="outline-text-3" id="text-preview">
+
+<figure id="orga06faa4">
+<img src="./../images/test-image.png" alt="test-image.png">
+
+</figure>
+
+<p>
+This is a preview of the post. This technique uses a nylon powder
+which conveniently supports the structures as they are printed. No
+scaffolding or supports are needed, so we can print as many objects
+as we can pack into the volume.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6af5a8b" class="outline-3">
+<h3 id="org6af5a8b">Let's go</h3>
+<div class="outline-text-3" id="text-org6af5a8b">
+<p>
+This technique uses a nylon powder which conveniently supports the
+structures as they are printed. No scaffolding or supports are
+needed, so we can print as many objects as we can pack into the
+volume.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">f</span> (a b)
+  <span class="org-doc">"this is a simple comment"</span>
+  (<span class="org-keyword">interactive</span>)
+  (+ a b))
+</pre>
+</div>
+
+<p>
+This technique uses a nylon powder which conveniently supports the
+structures as they are printed. No scaffolding or supports are
+needed, so we can print as many objects as we can pack into the
+volume.
+</p>
+</div>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<div class="container">
+  <nav aria-label="Social">
+    <ul>
+      <li>
+        <a href="https://github.com/evgeniysharapov" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/github.svg" class="icon">
+          </object>
+        </a>        
+      </li>
+      <li>
+        <a href="https://hg.sr.ht/~evgeniysharapov" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/srht.svg" class="icon">
+          </object>
+        </a>        
+      </li>
+      <li>
+        <a href="https://bitbucket.com/evgeniysharapov" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/bitbucket.svg" class="icon">
+          </object>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/evgeniysharapov" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/twitter.svg" class="icon">
+          </object>          
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/evgeniysharapov/" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/linkedin.svg" class="icon">
+          </object>                    
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/c/EvgeniySharapov" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/youtube.svg" class="icon">
+          </object>                    
+        </a>
+      </li>
+      <li>
+        <a href="mailto:evgeniy.sharapov.at.gmail.com" target="_blank" rel="noopener">
+          <object type="image/svg+xml" data="/assets/svg/email.svg" class="icon">
+          </object>                              
+        </a>        
+      </li>
+
+
+    </ul>
+  </nav>
+  <div class="meta">
+    Copyright 2013 - 2020 Evgeniy N. Sharapov (<a href="https://validator.w3.org/check?uri=referer">Validate</a> HTML).<br>
+    Created 2021-09-24 <br>
+    Last updated 2021-03-07. <br>
+    Built with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.0.50 (<a href="https://orgmode.org">Org</a> mode 9.4.4).
+  </div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,7 +1,28 @@
 #+TITLE: Articles and Essays
 #+AUTHOR: Evgeniy N. Sharapov
 #+DATE: <2020-11-17 Tue>
+
+#+begin_article-info
+#+begin_date
+Published {{{date(%Y-%m-%d)}}}
+#+end_date
+#+begin_date
+Updated {{{modification-time(%Y-%m-%d)}}}
+#+end_date
+#+end_article-info
+
 * How this site is made
+
+#+begin_article-info
+#+begin_date
+Published {{{date(%Y-%m-%d)}}}
+#+end_date
+#+begin_date
+Updated {{{modification-time(%Y-%m-%d)}}}
+#+end_date
+#+end_article-info
+
+
 ** ANd a level 2 header
 *** And a level 3 header 
 *** Another 3rd level

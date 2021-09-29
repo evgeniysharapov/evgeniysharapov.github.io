@@ -2,12 +2,9 @@
 #+AUTHOR: Evgeniy Sharapov
 #+EMAIL: evgeniy.sharapov@gmail.com
 #+OPTIONS: tags:t toc:nil title:nil
+#+DATE: [2020-08-31 Mon 14:26]
 
 * Introduction                                                            :c:
-  :PROPERTIES:
-  :CUSTOM_ID: 123412341234
-  :CREATED:  [2020-08-31 Mon 14:26]
-  :END:
   
   And some more.
 
@@ -15,7 +12,7 @@
 
   This is a simple introduction
 
-  Another intro
+  Another intro [[file:articles/index.org][some link]]
 
 
 * Links                                                           :links:tag2:
@@ -38,3 +35,8 @@ files, and call =package-refresh-contents= if the timestamp is
 
     (prin1 '(1 2 3))
   #+end_src
+
+  Here's the timestamp [2021-09-29 Wed]
+  Here's the active timestamp <2021-09-29 Wed>
+
+  

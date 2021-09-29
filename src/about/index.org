@@ -8,11 +8,14 @@ I build this website in Emacs' Org mode, which can publish static HTML
 files. Those I deploy on using Netlify pipeline. [[file:../articles/emacs-and-orgmode-website.org][More information]]
 about using Emacs and Org mode for static website 
 
-* How this site is made
-** ANd a level 2 header
-*** And a level 3 header 
-*** Another 3rd level
-* This is a level 1
+** How this site is made
 
-  some text /italic/ and **bold**
+   Source code for this website it located at
+   https://hg.sr.ht/~evgeniysharapov/Website. I use Emacs for editing
+   Org files with content and then commit it.
+   Deployment pipeline is kicked in and generates web-site code   
+   
+** How This website is deploy
+   
+   some text /italic/ and **bold**
 

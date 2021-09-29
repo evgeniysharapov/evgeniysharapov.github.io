@@ -2,13 +2,6 @@
 #+AUTHOR: Evgeniy N. Sharapov
 #+DATE: <2021-07-18 Sun>
 
-:Created:
-Created {{{date(%Y-%m-%d)}}}
-:END:
-:Updated:
-Updated {{{modification-time(%Y-%m-%d)}}}
-:END:
-
 * Introduction
   
 I have been using [[https://www.gnu.org/software/emacs/][Emacs]] since early 2000-s. Some years saw very heavy

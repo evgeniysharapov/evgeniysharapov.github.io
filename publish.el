@@ -53,11 +53,7 @@ Extension .html is added automatically."
       org-html-head-include-scripts nil)
 
 ;;; Tags page build up
-(defun tags-sitemap-function (title list)
-  (message "tags page"))
 
-(defun tags-sitemap-format-entry (entry style project)
-  (message "tag each entry"))
 
 ;;; Customizing Publishing Process
 (defun  blog-sitemap-function (title list)
@@ -130,6 +126,15 @@ NAME name of the drawer, CONTENTS value of the drawer."
     ("CREATED" (format "<div class='history created'>%s</div>" contents))
     ("UPDATED" (format "<div class='history updated'>%s</div>" contents))
     (_  contents)))
+
+(defun tags-to-links (orig-fun &rest args)
+  (let* ((tags (car args))
+         (info (cadr args))
+         (tags-links (mapcar (lambda (tag) (format "<a href='/tags/%s'>%s</a>" tag tag)) tags))
+         (new-args (list tags-links info)))
+    (apply orig-fun new-args)))
+
+(advice-add #'org-html--tags :around #'tags-to-links)
 
 
 ;;; Publishing Project 

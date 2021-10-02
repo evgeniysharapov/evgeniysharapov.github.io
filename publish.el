@@ -128,6 +128,8 @@ NAME name of the drawer, CONTENTS value of the drawer."
     (_  contents)))
 
 (defun tags-to-links (orig-fun &rest args)
+  "This is an advice for `org-html--tags' function that turns tags into links.
+That is anchor tags pointing to /tags/name page"
   (let* ((tags (car args))
          (info (cadr args))
          (tags-links (mapcar (lambda (tag) (format "<a href='/tags/%s'>%s</a>" tag tag)) tags))

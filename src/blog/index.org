@@ -1,14 +1,5 @@
 #+TITLE: Blog
 
-** [[file:page-with-image.org][Another Page With Tags and Image]]  :laptop:car:pc:sailboat:
-#+begin_article-info
-#+begin_date
-Nov 17, 2020
-#+end_date
-#+end_article-info
-#+include: "page-with-image.org::#preview"  :only-contents t
-
-[[file:page-with-image.org][Read more...]]
 ** [[file:test.org][Thius is a test page]]  
 #+begin_article-info
 #+begin_date
@@ -18,6 +9,15 @@ Nov 17, 2020
 #+include: "test.org::#preview"  :only-contents t
 
 [[file:test.org][Read more...]]
+** [[file:page-with-image.org][Another Page With Tags and Image]]  :laptop:car:pc:sailboat:
+#+begin_article-info
+#+begin_date
+Nov 17, 2020
+#+end_date
+#+end_article-info
+#+include: "page-with-image.org::#preview"  :only-contents t
+
+[[file:page-with-image.org][Read more...]]
 ** [[file:another.org][Another Page]]  
 #+begin_article-info
 #+begin_date

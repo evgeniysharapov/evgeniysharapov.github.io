@@ -53,11 +53,7 @@ Extension .html is added automatically."
       org-html-head-include-scripts nil)
 
 ;;; Tags page build up
-(defun tags-sitemap-function (title list)
-  (message "tags page"))
 
-(defun tags-sitemap-format-entry (entry style project)
-  (message "tag each entry"))
 
 ;;; Customizing Publishing Process
 (defun  blog-sitemap-function (title list)
@@ -113,7 +109,7 @@ is the property list for the given project.  PUB-DIR is the
 publishing directory.
 
 Return output file name."
-  (unless (file-directory-p pub-dir)
+  (unless (file-directory-p pub-dir)a
     (make-directory pub-dir t))
   (let ((output (expand-file-name (file-name-nondirectory filename) pub-dir)))
     (unless (file-equal-p (expand-file-name (file-name-directory filename))
@@ -130,6 +126,42 @@ NAME name of the drawer, CONTENTS value of the drawer."
     ("CREATED" (format "<div class='history created'>%s</div>" contents))
     ("UPDATED" (format "<div class='history updated'>%s</div>" contents))
     (_  contents)))
+
+(defun filename (&rest paths)
+  "Makes a file path out of PATHS."
+  (let ((dir (reduce #'concat (mapcar (lambda (path) (file-name-as-directory path)) (butlast paths)))))
+    (concat (file-name-as-directory dir) (car (last paths)))))
+
+(defun add-tags-pages (tags file &optional headline)
+  "Generates org files with tags, reusing existing org files for tags if they are existing.
+TAGS is a list of tags. FILE is a filename. HEADLINE is an optional headline.
+0. iterate over tags list and for each tag 
+1. check if file exists
+2. if exists add more entries to the file
+3. if doesn't exist then create a new file and add the entries"
+  (mapc (lambda (tag)
+          (let* ((tagfile (filename site-source-dir "tags" tag))
+                 (entry (if headline (format  "[[file:%s][%s]]\n" tagfile headline)
+                          )))
+            (if (file-exists-p tagfile)
+                ;; just add the entry                
+                (write-region "")
+                ;; otherwise  create new file
+                (with-temp-file tagfile
+                  )
+              )))
+        tags))
+
+(defun tags-to-links (orig-fun &rest args)
+  "This is an advice for `org-html--tags' function that turns tags into links.
+That is anchor tags pointing to /tags/name page"
+  (let* ((tags (car args))
+         (info (cadr args))
+         (tags-links (mapcar (lambda (tag) (format "<a href='/tags/%s'>%s</a>" tag tag)) tags))
+         (new-args (list tags-links info)))
+    (apply orig-fun new-args)))
+
+(advice-add #'org-html--tags :around #'tags-to-links)
 
 
 ;;; Publishing Project

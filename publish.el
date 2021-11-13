@@ -132,7 +132,7 @@ NAME name of the drawer, CONTENTS value of the drawer."
     (_  contents)))
 
 
-;;; Publishing Project 
+;;; Publishing Project
 (setf org-publish-project-alist
       `(
         ("evgeniysharapov.com" :components ("content" "blog" "assets" "content-images"))

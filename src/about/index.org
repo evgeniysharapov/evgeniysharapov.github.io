@@ -1,7 +1,50 @@
 #+AUTHOR: Evgeniy N. Sharapov
 #+DATE: <2020-11-17 Tue>
+#+KEYWORDS: Evgeniy Sharapov, website
+
+* Evgeniy Sharapov
+ 
+** What about the name 
+
+   Looks like [[https://en.wikipedia.org/wiki/Sharapov][English Wiki]] points to a Turkic origin of the last name ~arap~ 
+
+   
+   
+** Short biography
+  
+   Evgeniy was born and grew up in Perm, Russia where he received his
+   Computer Engineering Diploma from Perm State Technical University.
 
 
+   [[file:../images/PermLocation.jpg]]
+
+
+   While working on his degree he participated in student theater,
+   produced a local news show on television.
+
+
+   held a few Junior
+   Engineer internships with the Fermi National Accelerator Laboratory
+   near Chicago, IL where he helped build hardware and software.
+
+   Upon graduation he went to work as an Engineer for an oil petroleum
+   company, then onto Fermilab, where he worked on the Large Hadron
+   Collider, which is the largest machine in the world. After that he
+   received his Masters degree in Industrial Engineering from Lehigh
+   University and went to work for various companies including Siemens
+   and Disney in Orlando, FL. The career track led him to relocate to
+   the Raleigh, NC where he worked for a consulting company building a
+   custom software platform for Metlife Japan until it was successfully
+   handed over to the client. Looking for new challenges, Evgeniy
+   joined the Ai team to work on CHPL and ULP.
+
+   Evgeniy is married with three children which makes life interesting
+   and challenging at the same time. Before he had children he enjoyed
+   dancing Argentinian tango, salsa and bachata, going to social dances
+   and festivals; scuba diving; sailing and hiking. Now he's doing
+   gentle hikes, recreational beach trips and riding a bike with a
+   trailer full of kids.
+ 
 * About This Website
 
 I build this website in Emacs' Org mode, which can publish static HTML

@@ -9,7 +9,8 @@
    :CUSTOM_ID: preview
    :END:
 
-   This is a preview of the whole post 
+   This is a preview of the whole post But it will not appear on the
+   page once you get into it
 
 ** This is a 2 level
 *** This is a 3rd level

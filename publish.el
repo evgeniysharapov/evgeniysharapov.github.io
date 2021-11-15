@@ -10,6 +10,14 @@
 (require 'ox-html)
 (require 'ox-publish)
 
+;;; Correct for Emacs Version
+(if (not (featurep 'cl-lib))
+    (progn
+      (require 'cl)
+      ;; fix conflict name
+      (defalias 'cl-reduce 'reduce))
+  (require 'cl-lib))
+
 ;;; Constants and Variables
 ;;;; Paths
 (defconst base-dir (file-name-directory (or load-file-name (buffer-file-name (current-buffer)))))
@@ -33,6 +41,11 @@
 (add-to-list 'load-path (concat  base-dir "lisp"))
 
 ;;; Utilities
+(defun filename (&rest paths)
+  "Makes a file path out of PATHS."
+  (let ((dir (cl-reduce #'concat (mapcar (lambda (path) (file-name-as-directory path)) (butlast paths)))))
+    (concat (file-name-as-directory dir) (car (last paths)))))
+
 (defun html (filename)
   "Read a file FILENAME from directory src/_html into a string.
 Extension .html is added automatically."

@@ -53,10 +53,16 @@ Extension .html is added automatically."
     (insert-file-contents (filename base-dir "src" "_html" (concat filename ".html")))
     (buffer-string)))
 
+(defun listify (s)
+  "Convert string S into a list of strings."
+  (if (stringp s)
+      (split-string s "[ ,;]+" 'omit-nulls "trim")
+    s))
+
 (defun tagify (s)
   "Convert given string S into a string that represents Org tags.
 So the S is split into parts and then joined into a string with ':' character."
-  (let ((tags (split-string s "[ ,;]+" 'omit-nulls "trim")))
+  (let ((tags (listify s)))
     (if tags (concat ":" (mapconcat 'identity tags ":") ":")
       "")))
 
@@ -81,15 +87,17 @@ TAGS is a list of tags. FILE is a filename. HEADLINE is an optional headline.
 2. if exists add more entries to the file
 3. if doesn't exist then create a new file and add the entries"
   (mapc (lambda (tag)
-          (let* ((tagfile (filename site-source-dir "tags" tag))
-                 (entry (if headline (format  "[[file:%s][%s]]\n" tagfile headline))))
-            (if (file-exists-p tagfile)
-                ;; just add the entry                
-                (write-region "")
-                ;; otherwise  create new file
-                (with-temp-file tagfile
-                  )
-              )))
+          (let* ((tagfile (filename site-source-dir "tags" (concat tag ".org")))                 
+                 (entry (if headline
+                            (format  "[[file:%s][%s]]\n" file headline)
+                          (format "[[file:%s]]\n" file))))
+            (with-temp-buffer
+              ;; content to write
+              (insert entry)
+              ;; will write to a new file or append to existing one
+              (if (file-exists-p tagfile)                  
+                  (write-region (point-min) (point-max) tagfile)
+                (with-temp-file tagfile entry)))))
         tags))
 
 (defun tags-to-links (orig-fun &rest args)
@@ -97,12 +105,11 @@ TAGS is a list of tags. FILE is a filename. HEADLINE is an optional headline.
 That is anchor tags pointing to /tags/name page"
   (let* ((tags (car args))
          (info (cadr args))
-         (tags-links (mapcar (lambda (tag) (format "<a href='/tags/%s'>%s</a>" tag tag)) tags))
+         (tags-links (mapcar (lambda (tag) (format "<a href='/tags/%s.html'>%s</a>" tag tag)) tags))
          (new-args (list tags-links info)))
     (apply orig-fun new-args)))
 
 (advice-add #'org-html--tags :around #'tags-to-links)
-
 
 ;;; Customizing Publishing Process
 (defun  blog-sitemap-function (title list)
@@ -124,8 +131,14 @@ Arguments TITLE and LIST are exactly the same"
   "Format each entry in blog index.
 Same parameters ENTRY, STYLE and PROJECT as in `org-publish-sitemap-default-entry'."
   (when (not (directory-name-p entry))
-    (concat
-     (format "
+    (let* ((kw (org-publish-find-property entry :keywords project 'html))
+           (file (filename (org-publish-property :base-directory project) entry))
+           (title (org-publish-find-title entry project)))
+      ;; this will create tags
+      (add-tags-pages (listify kw) file title)
+      ;; this will be returned to sitemap
+      (concat
+       (format "
 [[file:%s][%s]]\t\t%s
 #+begin_article-info
 #+begin_date
@@ -136,12 +149,12 @@ Same parameters ENTRY, STYLE and PROJECT as in `org-publish-sitemap-default-entr
 
 [[file:%s][Read more...]]
 "
-             entry
-             (org-publish-find-title entry project)
-             (tagify (or (org-publish-find-property entry :keywords project 'html)  ""))
-             (format-time-string blog-index-date-format (org-publish-find-date entry project))
-             entry
-             entry))))
+               entry
+               title
+               (tagify (or kw ""))
+               (format-time-string blog-index-date-format (org-publish-find-date entry project))
+               entry
+               entry)))))
 
 (defun sass-compile-publish (_plist filename pub-dir)
   "Publish an scss/sass file.
@@ -182,7 +195,6 @@ NAME name of the drawer, CONTENTS value of the drawer."
          :publishing-function org-html-publish-to-html
          :recursive t          ; descend into sub-folders?
          :exclude "^blog"
-
          ;; Content of each file
          :with-drawers t
          :with-properties t
@@ -193,12 +205,11 @@ NAME name of the drawer, CONTENTS value of the drawer."
          :with-date t
          :with-tags nil
          :with-toc nil
-         :htmlized-source t
-         
+         :htmlized-source t         
          :html-head ,(html "header")
          :html-preamble ,(html "nav")
          :html-postamble ,(html "footer"))
-        
+
         ; blog content has sitemap that is a list of posts
         ("blog"
          :base-directory ,(concat site-source-dir "/blog")
@@ -207,7 +218,6 @@ NAME name of the drawer, CONTENTS value of the drawer."
          :publishing-directory ,(concat site-publish-dir "/blog")
          :publishing-function org-html-publish-to-html
          :recursive t          ; descend into sub-folders?
-
          ;; Content of each file
          :section-numbers nil  ; don't create numbered sections
          :with-author t
@@ -215,11 +225,9 @@ NAME name of the drawer, CONTENTS value of the drawer."
          :with-toc nil         ; don't create a table of contents
          :with-tags nil
          :htmlized-source t
-
          :html-head ,(html "header-blog")
          :html-preamble ,(html "nav")
          :html-postamble ,(html "footer")
-         
          ;; Sitemap
          :auto-sitemap t
          :sitemap-filename "index.org"

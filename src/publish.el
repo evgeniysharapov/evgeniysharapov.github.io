@@ -9,8 +9,7 @@
 (require 'ox)
 (require 'ox-html)
 (require 'ox-publish)
-
-;;; Correct for Emacs Version
+;;; Correct for newer Emacs Version
 (if (not (featurep 'cl-lib))
     (progn
       (require 'cl)
@@ -18,40 +17,16 @@
       (defalias 'cl-reduce 'reduce))
   (require 'cl-lib))
 
-;;; Constants and Variables
-;;;; Paths
-(defconst base-dir (file-name-directory (or load-file-name (buffer-file-name (current-buffer)))))
-(defconst site-publish-dir (concat base-dir "public"))
-(defconst site-source-dir (concat base-dir "src"))
-(defconst site-assets-dir (concat base-dir "assets"))
-
-;;;; Dates Formatting
-(defvar publish-date-format "%h %d, %Y"
-  "Format for displaying publish dates.")
-(defvar sitemap-date-format "Published %d %b %d %Y"
-  "Format dates for the list of blog posts (sitemap).")
-(defvar blog-index-date-format "%b %e, %Y"
-  "Format dates for list of published blog posts.")
-
-;;;; User
-(setf user-full-name "Evgeniy N. Sharapov"
-      user-mail-address "evgeniy.sharapov@gmail.com")
-
-;;; Extra Packages
-(add-to-list 'load-path (concat  base-dir "lisp"))
 
 ;;; Utilities
+(defun parent-directory (path)
+  "Return parent directory of PATH whether it's a file or a directory."
+  (file-name-directory (directory-file-name path)))
+
 (defun filename (&rest paths)
-  "Makes a file path out of PATHS."
+  "Make a file path out of PATHS."
   (let ((dir (cl-reduce #'concat (mapcar (lambda (path) (file-name-as-directory path)) (butlast paths)))))
     (concat (file-name-as-directory dir) (car (last paths)))))
-
-(defun html (filename)
-  "Read a file FILENAME from directory src/_html into a string.
-Extension .html is added automatically."
-  (with-temp-buffer
-    (insert-file-contents (filename base-dir "src" "_html" (concat filename ".html")))
-    (buffer-string)))
 
 (defun listify (s)
   "Convert string S into a list of strings."
@@ -66,6 +41,30 @@ So the S is split into parts and then joined into a string with ':' character."
     (if tags (concat ":" (mapconcat 'identity tags ":") ":")
       "")))
 
+;;; Constants and Variables
+;;;; Paths
+(defconst *source-dir* (file-name-directory (or load-file-name (buffer-file-name (current-buffer)))))
+(defconst *base-dir* (parent-directory *source-dir*))
+(defconst *site-output-dir* (filename *base-dir* "output"))
+(defconst *site-content-dir* (filename *base-dir* "content"))
+(defconst *site-publish-dir* (filename *base-dir* "public"))
+(defconst *site-assets-dir* (filename *base-dir* "assets"))
+
+;;;; Dates Formatting
+(defvar publish-date-format "%h %d, %Y"
+  "Format for displaying publish dates.")
+(defvar sitemap-date-format "Published %d %b %d %Y"
+  "Format dates for the list of blog posts (sitemap).")
+(defvar blog-index-date-format "%b %e, %Y"
+  "Format dates for list of published blog posts.")
+
+;;;; User
+(setf user-full-name "Evgeniy N. Sharapov"
+      user-mail-address "evgeniy.sharapov@gmail.com")
+
+;;; Extra Packages
+(add-to-list 'load-path (filename *source-dir* "lisp"))
+
 ;;; Org HTML Setup
 (setf org-html-doctype "html5"
       org-html-html5-fancy t
@@ -78,6 +77,13 @@ So the S is split into parts and then joined into a string with ':' character."
       org-html-head-include-default-style nil
       org-html-head-include-scripts nil)
 
+(defun html (filename)
+  "Read a file FILENAME from directory src/_html into a string.
+Extension .html is added automatically."
+  (with-temp-buffer
+    (insert-file-contents (filename *site-content-dir* "_html" (concat filename ".html")))
+    (buffer-string)))
+
 ;;; Tags page build up
 (defun add-tags-pages (tags file &optional headline)
   "Generates org files with tags, reusing existing org files for tags if they are existing.
@@ -87,7 +93,7 @@ TAGS is a list of tags. FILE is a filename. HEADLINE is an optional headline.
 2. if exists add more entries to the file
 3. if doesn't exist then create a new file and add the entries"
   (mapc (lambda (tag)
-          (let* ((tagfile (filename site-source-dir "tags" (concat tag ".org")))                 
+          (let* ((tagfile (filename *site-output-dir* "tags" (concat tag ".org")))                 
                  (entry (if headline
                             (format  "[[file:%s][%s]]\n" file headline)
                           (format "[[file:%s]]\n" file))))
@@ -188,10 +194,10 @@ NAME name of the drawer, CONTENTS value of the drawer."
         ("evgeniysharapov.com" :components ("content" "blog" "assets" "content-images"))
         ; main content with projects, articles, etc
         ("content"
-         :base-directory ,site-source-dir
+         :base-directory ,*site-content-dir*
          :html-extension "html"
          :base-extension "org"
-         :publishing-directory ,site-publish-dir
+         :publishing-directory ,*site-output-dir*
          :publishing-function org-html-publish-to-html
          :recursive t          ; descend into sub-folders?
          :exclude "^blog"
@@ -212,10 +218,10 @@ NAME name of the drawer, CONTENTS value of the drawer."
 
         ; blog content has sitemap that is a list of posts
         ("blog"
-         :base-directory ,(concat site-source-dir "/blog")
+         :base-directory ,(filename *site-content-dir* "blog")
          :html-extension "html"
          :base-extension "org"
-         :publishing-directory ,(concat site-publish-dir "/blog")
+         :publishing-directory ,(filename *site-output-dir* "blog")
          :publishing-function org-html-publish-to-html
          :recursive t          ; descend into sub-folders?
          ;; Content of each file
@@ -239,8 +245,8 @@ NAME name of the drawer, CONTENTS value of the drawer."
 
         ;; assets, css/fonts/js
         ("assets"
-         :base-directory ,site-assets-dir
-         :publishing-directory ,(concat site-publish-dir "/assets")
+         :base-directory ,*site-assets-dir*
+         :publishing-directory ,(filename *site-output-dir* "assets")
          :base-extension "css\\|js\\|ttf\\|woff2\\|jpg\\|jpeg\\|gif\\|png\\|pdf\\|svg"
          :recursive t
 	 :publishing-function org-publish-attachment)
@@ -253,8 +259,8 @@ NAME name of the drawer, CONTENTS value of the drawer."
         ;;  )        
         ;; images
         ("content-images"
-         :base-directory ,(concat site-source-dir "/images")
-         :publishing-directory ,(concat site-publish-dir "/images")
+         :base-directory ,(filename *site-content-dir* "images")
+         :publishing-directory ,(filename *site-output-dir* "images")
          :base-extension "jpg\\|jpeg\\|gif\\|png\\|pdf\\|svg"
          :recursive t
 	 :publishing-function org-publish-attachment)

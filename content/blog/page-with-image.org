@@ -1,0 +1,42 @@
+#+TITLE: Another Page With Tags and Image
+#+AUTHOR: Evgeniy N. Sharapov
+#+DATE: <2020-11-17 Tue>
+#+KEYWORDS: laptop car pc sailboat
+#+TAGS: Tag Simple 
+#+STARTUP: showall
+#+STARTUP: inlineimages
+
+* This is a Page main Heading                                    :test:image:
+** First Things First                                        :tag1:simpletag:
+   :PROPERTIES:
+   :CUSTOM_ID: preview
+   :END:
+
+
+    [[./../images/test-image.png]]
+
+    This is a preview of the post. This technique uses a nylon powder
+    which conveniently supports the structures as they are printed. No
+    scaffolding or supports are needed, so we can print as many objects
+    as we can pack into the volume.
+
+** Let's go                                                       :simpletag:
+
+   This technique uses a nylon powder which conveniently supports the
+   structures as they are printed. No scaffolding or supports are
+   needed, so we can print as many objects as we can pack into the
+   volume.
+
+   #+begin_src emacs-lisp
+     (defun f (a b)
+       "this is a simple comment"
+       (interactive)
+       (+ a b))
+   #+end_src
+
+   This technique uses a nylon powder which conveniently supports the
+   structures as they are printed. No scaffolding or supports are
+   needed, so we can print as many objects as we can pack into the
+   volume.
+
+   

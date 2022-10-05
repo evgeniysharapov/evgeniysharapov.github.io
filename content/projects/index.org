@@ -1,0 +1,51 @@
+#+TITLE: Projects
+#+AUTHOR: Evgeniy Sharapov
+#+EMAIL: evgeniy.sharapov@gmail.com
+#+OPTIONS: auto-id:t
+
+* Projects
+
+  THis is my projects list
+
+* Links
+
+  Here are some links
+
+
+#+begin_quote
+THis is a quote 
+#+end_quote
+
+
+and adding some exampels 
+
+#+begin_example
+This is an example 
+ I ignore
+#+end_example
+
+With the endnotes CTAN package endnotes can be printed to the end of
+the document [fn:1].
+
+With the endnotes CTAN package endnotes can be printed to the end.
+ofWith the endnotes CTAN package endnotes can be printed to the end.
+ofWith the endnotes CTAN package endnotes can be printed to the end.
+ofWith the endnotes CTAN package endnotes can be printed to the end of
+With the endnotes CTAN package endnotes can be printed to the end of
+the document [fn:1].
+
+You will need to use the LaTeX-package called endnotes from your org
+document. You will need to use the LaTeX-package called endnotes from
+your org document. You will need to use the LaTeX-package called
+endnotes from your org document. You will need to use the
+LaTeX-package called endnotes from your org document. You will [fn:2]  need to
+use the LaTeX-package called endnotes from your org document. You will
+need to use the LaTeX-package called endnotes from your org document.
+
+
+* TODO Footnotes
+
+[fn:2] This is a another footnote 
+
+[fn:1] This is a footnote of note.
+ 

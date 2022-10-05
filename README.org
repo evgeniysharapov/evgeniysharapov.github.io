@@ -1,0 +1,37 @@
+#+TITLE: Personal Website
+#+AUTHOR: Evgeniy N. Sharapov
+
+* About 
+
+  Personal web-site made as a static web-site generated using =org-mode=
+
+* Building 
+
+  First make sure that you generated CSS out of SASS
+
+  #+begin_src shell
+    sass assets/css/styles.scss assets/css/styles.css
+  #+end_src
+
+  To build just run =make=
+
+
+  When doing development it's helpful to run a =watch= command
+
+  #+begin_src shell
+    watch -n 1 sass assets/css/styles.scss assets/css/styles.css && rm -rf ~/.org-timestamps && make
+  #+end_src
+  
+
+* Running Locally
+
+  To run it locally you could use any simple HTTP server that would serve static content
+
+  #+begin_src shell
+    python -m http.server 8000 --directory public
+  #+end_src
+
+  This will kick off web-server on port 8000
+
+
+* Deployment 

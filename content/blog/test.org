@@ -1,0 +1,35 @@
+#+TITLE: Thius is a test page
+#+AUTHOR: Evgeniy N. Sharapov
+#+DATE: <2020-11-17 Tue>
+#+STARTUP: showall
+#+STARTUP: inlineimages
+* This is a level 1 Headline
+** preview                                                         :noexport:
+   :PROPERTIES:
+   :CUSTOM_ID: preview
+   :END:
+
+   This is a preview of the whole post But it will not appear on the
+   page once you get into it
+
+** This is a 2 level
+*** This is a 3rd level
+
+    SOme text /another/ text **bold**
+    
+    #+begin_src c
+      int main() {
+          return 1;
+      }
+    #+end_src
+
+    And more code in Ocaml
+
+    #+begin_src ocaml
+      let f a b =
+        a + b
+
+      let d x =
+        print_endline x;
+        x
+    #+end_src

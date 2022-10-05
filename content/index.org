@@ -1,0 +1,42 @@
+#+TITLE: Evgeniy Sharapov Homepage
+#+AUTHOR: Evgeniy Sharapov
+#+EMAIL: evgeniy.sharapov@gmail.com
+#+OPTIONS: tags:t toc:nil title:nil
+#+DATE: [2020-08-31 Mon 14:26]
+
+* Introduction                                                            :c:
+  
+  And some more.
+
+  T.
+
+  This is a simple introduction
+
+  Another intro [[file:articles/index.org][some link]]
+
+
+* Links                                                           :links:tag2:
+
+  Here are some links
+  [[file:projects/][Projects]]
+
+
+* Some source code
+
+  But if the package contents weren't up to date, a separate
+@@html:<kbd>M-x</kbd>@@ =package-refresh-contents= had to be
+*triggered*, which was an /annoying/ overhead. Now =counsel-package=
+will look at the _time stamps_ of the appropriate =archive-contents=
+files, and call =package-refresh-contents= if the timestamp is
+~outdated~ by more than 4 hours.
+
+  #+begin_src emacs-lisp
+    (require 'ox-rss)
+
+    (prin1 '(1 2 3))
+  #+end_src
+
+  Here's the timestamp [2021-09-29 Wed]
+  Here's the active timestamp <2021-09-29 Wed>
+
+  

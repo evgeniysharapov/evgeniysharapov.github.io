@@ -1,0 +1,546 @@
+// -*- eval: (outline-minor-mode 1); -*-
+@charset 'utf-8';
+
+// * Screen Sizes
+$small-phone-width: 360px;
+$phone-width: 411px;
+$tablet-width: 731px;
+$desktop-width: 1024px;
+
+@mixin smallphone {
+  @media (min-width: #{$small-phone-width}) and (max-width: #{$phone-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+// * Fonts
+$font-header: Oswald, sans-serif;
+$font-content: Montserrat, Helvetica, sans-serif;
+$font-mono: Iosevka, monospace;
+    
+    
+// * Colors
+$color-menu-background: white;
+
+$color-gray: #888;
+$color-darkgray: #444;
+$color-footer-border: #ac9e9e;
+$color-code-background: #eee;
+
+$color-text: $color-darkgray;
+$color-text-header: $color-darkgray;
+
+// * Animations
+@mixin underline-from-center() {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 2px;
+    bottom: 0;
+    left: 51%;
+    right: 51%;
+    background: $color-darkgray;
+    transition-duration: 0.2s;
+    transition-property: right, left;
+    transition-timing-function: ease-out;
+  }
+
+  &.active,
+  &:active,
+  &:focus,
+  &:hover {
+    &:before {
+      right: 0;
+      left: 0;
+    }
+  }
+}
+
+// * Fonts
+html {
+    line-height: 1.5;
+}
+main {
+    font-family: $font-content;
+}
+
+h1, h2, h3, h4, h5, h6 {        
+    font-family: $font-header;
+}
+
+pre, code {
+    font-family: $font-mono;
+}
+
+header {
+    font-family: $font-header;
+}
+
+// * Org-mode Elements
+// ** Page Structure
+header h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+main {
+    margin-top: 7rem;
+    // display: flex;
+    max-width: 56rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.outline-2 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 5rem;
+
+    h2 {
+        margin-bottom: 0;
+    }
+}
+
+h1, h2, h3 {
+    a {
+        text-decoration: none;
+        color: $color-text-header;
+        @include underline-from-center;
+    }
+}
+
+
+// ** Code and Text Elements
+pre.src {
+    line-height: 1;
+    padding-top: 0.25rem;
+    background-color: $color-code-background;
+}
+
+code {
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: $color-code-background;
+    font-size: 1.1em;
+}
+
+kbd {
+    padding: 2px;
+    border: 1px solid $color-gray;
+    background-color: $color-code-background;
+    border-radius: 4px;
+    font-size: 1.1em;
+}
+
+samp {
+    font-size: 1.1em;    
+}
+
+blockquote {
+    padding-left: 1rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;    
+    border-left: 5px solid #e5e5e5;
+    color: #686868;
+    font-style: italic;    
+}
+
+// ** Meta
+.article-info {
+    margin-bottom: 2rem;
+    .date{
+        color: $color-gray;
+        font-weight: bolder;
+        p {
+            vertical-align: text-top;
+            display: inline;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.history {
+    margin: 0;
+    padding-top: 0;
+    float: left;
+    font-style: italic;
+    font-size: small;
+    p {
+        margin-top: 0;
+    }
+}
+.created, .updated {
+    padding-left: 3rem;
+}
+
+section {
+    // this is to ensure that floating elements do not mess up the sections
+    clear: left;
+}
+
+// ** Figures
+.figure {
+    padding: 1rem;
+    p {
+        text-align: center;
+    }
+}
+
+// ** Footnotes
+// footnotes in the text
+p sup {
+    background-color: $color-darkgray;
+    border-radius: 50%;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    top: -0.66rem;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    &:hover {
+        background-color: $color-gray;
+    }
+}
+
+// footnotes at the bottom
+#footnotes {
+    padding-left: 5rem;
+    padding-right: 4rem;
+
+    h2 {
+        padding-left: 1rem;
+        margin: 0 auto 0.5rem;
+        border-top: 1px solid $color-darkgray;        
+    }
+    #text-footnotes {
+        padding-left: 1rem;
+
+        .footdef {
+            line-height: 1;
+            p {
+                  margin: 0 0.5rem 1rem;
+            }
+            sup {
+                font-size: 1rem;
+                position: inherit;
+                a {
+                    color: $color-text;
+                    text-decoration: none;                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+// * Tags
+
+.tag {
+  padding: .2rem .6rem .3rem;
+  line-height: 1.5;
+  vertical-align: middle;
+  background-color: white;
+  span:before {
+      content: "#";
+  }
+}
+
+@mixin tag {
+    vertical-align: top-text;
+    float: right;
+    font-size: 1rem;
+    font-family: $font-content;
+    font-weight: lighter;
+    color: $color-darkgray;
+    span {
+        margin-right: 0.5rem;
+    }
+}
+
+.outline-2 {
+    h2 .tag {
+        @include tag;
+    }
+    h3 .tag {
+        @include tag;
+    }
+} 
+
+// * Navigation
+header#top {
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    position: fixed;
+    border-bottom: 1px solid $color-gray ;
+    background: $color-menu-background;
+
+    @include smallphone {
+        padding-bottom: 0rem;
+    }
+    @include phone {
+        padding-bottom: 1rem;
+    }
+    @include tablet {
+        padding-bottom: 1rem;
+    }
+    @include desktop {
+        padding-bottom: 1rem;
+    }
+    
+    .nav {
+        flex-wrap: flex;
+        display: flex;
+        max-width: 56rem;
+        width: 100%;
+        padding-top: 0.75rem;
+
+        @include smallphone {
+            padding-bottom: 0rem;
+        }
+        @include phone {
+            padding-bottom: 0.75rem;
+        }
+        @include tablet {
+            padding-bottom: 0.75rem;
+        }
+        @include desktop {
+            padding-bottom: 0.75rem;
+        }
+        
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        
+        .nav-left {
+            padding-left: 1rem;
+            a {
+                font-size: 2.25rem;
+                font-weight: bolder;
+                color: $color-gray;
+                text-decoration: none;
+
+                &:before {
+                    background-image: url("/assets/img/face-smallest-opt.png");
+                    background-size: 4rem 4rem;
+                    background-repeat: no-repeat;
+                    width: 4rem;
+                    height: 4rem;
+                    content: "";
+                    border-radius: 50%;
+                    position: absolute;
+                    margin-left: -4.5rem;
+                }
+
+            }                   
+        }
+
+        @include smallphone {
+            .nav-left {
+                padding-left: 1rem;
+                padding-top: 4rem;
+                a {                    
+                    font-size: 0rem;
+                    font-weight: bolder;
+                    color: $color-gray;
+                    text-decoration: none;
+
+                    &:before {
+                        background-image: url("/assets/img/face-smallest-opt.png");
+                        background-size: 4rem 4rem;
+                        background-repeat: no-repeat;
+                        width: 4rem;
+                        height: 4rem;
+                        content: "";
+                        border-radius: 50%;
+                        position: absolute;
+                        margin-left: 1rem;
+                        margin-top: -4rem;
+                    }
+
+                }                   
+            }
+            .nav-right {
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    li {
+                        display: inline-block;
+                        margin: 0;
+                        a {
+                            font-size: smaller;
+                            font-family: $font-content;
+                            font-weight: bold;
+                            color: $color-darkgray;
+                            display: inline-block;
+                            text-decoration: none;
+                            padding-right: 0.5rem;
+                            @include underline-from-center;
+                        }
+                        i {
+                            font-size: 2rem;
+                        }                   
+                    }
+                }
+            }            
+        }
+        
+        
+        @include phone {
+            .nav-left {
+                padding-left: 1rem;
+                padding-top: 4rem;
+                a {
+                    font-size: 1rem;
+                    font-weight: bolder;
+                    color: $color-gray;
+                    text-decoration: none;
+
+                    &:before {
+                        background-image: url("/assets/img/face-smallest-opt.png");
+                        background-size: 4rem 4rem;
+                        background-repeat: no-repeat;
+                        width: 4rem;
+                        height: 4rem;
+                        content: "";
+                        border-radius: 50%;
+                        position: absolute;
+                        margin-left: 1rem;
+                        margin-top: -4rem;
+                    }
+
+                }                   
+            }
+        }
+
+        @include tablet {
+            .nav-left {
+                padding-left: 5rem;
+            }
+        }               
+        
+        .nav-right {
+            ul {
+                list-style: none;
+                padding: 0;
+                li {
+                    display: inline-block;
+                    margin: 0;
+                    a {                
+                        font-family: $font-content;
+                        font-weight: bold;
+                        color: $color-darkgray;
+                        display: inline-block;
+                        text-decoration: none;
+                        padding-right: 0.5rem;
+                        @include underline-from-center;
+                    }
+                    i {
+                        font-size: 2rem;
+                    }                   
+                }
+            }
+        }            
+    }
+
+    @include phone {
+        .nav {
+            padding-top: 0.1rem;
+        }
+    }
+}
+
+@include phone {
+    header#top {
+        padding-bottom: 0rem;
+    }
+}
+// * Footer
+footer {
+    font-family: Montserrat, Helvetica, sans-serif;
+    border-top: 1px solid $color-footer-border;
+    padding-top: 2rem;
+    .container {
+        width: 100%;
+        max-width: 740px;
+        margin: 0 auto;
+        nav {
+            text-align: center;
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            li {
+                display: inline-block;
+                margin-right: 0.1rem;
+                a {
+                    font-size: 1.125em
+                }
+                &:last-child {
+                    margin-right: 0
+                }
+            }
+        }
+
+        .meta {
+            font-size: 0.8rem;
+            margin-top: 50px;
+            text-align: center;
+            color: #aaa;
+            padding: 15px 0;
+            border-top: 1px solid #e2e2e2;
+            a {
+                color: $color-darkgray;
+            }
+        }
+    }
+}
+// ** Social Icons
+.icon {
+    height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    pointer-events: none; // this is important to embed SVGs into <A> and have it clickable
+}
+

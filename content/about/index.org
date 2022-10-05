@@ -1,42 +1,65 @@
 #+AUTHOR: Evgeniy N. Sharapov
 #+DATE: <2020-11-17 Tue>
 #+KEYWORDS: Evgeniy Sharapov, website
+#+TITLE: About - Evgeniy Sharapov
 
 * Evgeniy Sharapov
  
 ** What about the name 
 
-   Looks like [[https://en.wikipedia.org/wiki/Sharapov][English Wiki]] points to a Turkic origin of the last name ~arap~ 
+   Looks like [[https://en.wikipedia.org/wiki/Sharapov][English Wiki]] points to a Turkic origin of the last name ~Şarap~. 
 
+   As for the first name ~Evgeniy~ is a Russian version of the name which is common for many languages, e.g Eugene in English, or Eugen in German. 
+   It comes from Greek εὐγενής which literally means "good genetics" from εὖ (eu), "good, well" and γένος (genos), "race, stock, kin"
+   
    
    
 ** Short biography
   
-   Evgeniy was born and grew up in Perm, Russia where he received his
-   Computer Engineering Diploma from Perm State Technical University.
+   Evgeniy was born and grew up in [[http://visitperm.ru/en/][Perm, Russia]] where he received his
+   Computer Engineering Diploma from [[https://pstu.ru/en/][Perm State Technical University]].
 
-
+   #+CAPTION: City of Perm on a map and on a globe. 
    [[file:../images/PermLocation.jpg]]
-
+   
+ 
+   [[file:perm.org][Interesting historical information about Perm]]
 
    While working on his degree he participated in student theater,
-   produced a local news show on television.
+   produced a news show on [[https://www.avtoradio.ru/][local television]].
 
+   #+CAPTION: This is a caption of image
+   [[file:../images/autoradiotv.png]]
 
-   held a few Junior
-   Engineer internships with the Fermi National Accelerator Laboratory
-   near Chicago, IL where he helped build hardware and software.
-
+   While working on his undergraduate degree Evgeniy wa few Junior
+   Engineer internships with the [[https://www.fnal.gov/][Fermi National Accelerator Laboratory]]
+   near Chicago, IL where he helped building hardware and software for [[https://home.cern/science/experiments/cms][Compact Muon Solenoid]] project.
+   
    Upon graduation he went to work as an Engineer for an oil petroleum
-   company, then onto Fermilab, where he worked on the Large Hadron
-   Collider, which is the largest machine in the world. After that he
-   received his Masters degree in Industrial Engineering from Lehigh
-   University and went to work for various companies including Siemens
-   and Disney in Orlando, FL. The career track led him to relocate to
-   the Raleigh, NC where he worked for a consulting company building a
+   company, then as a Guest Engineer at [[https://www.fnal.gov][Fermilab]], where he worked on the team building [[https://home.cern/science/experiments/cms][Compact Muon Solenoid]] project the [[https://home.cern/resources/faqs/facts-and-figures-about-lhc][Large Hadron
+   Collider]] experiment.
+It is called the larged collaboration project in the world asnd also the largest machine in the world.
+
+
+After that he
+   received his Masters degree in Industrial Engineering from [[https://www.lehigh.edu][Lehigh
+     University]] and went to work as a consultant at company [[https://www.marlabs.com/][Marlabs]] for various clients including Siemens
+   and Disney in Orlando, FL.
+
+
+The career track led him to relocate to
+   the the state of North Carolina, Research Triangle Park area 
+
+   [[file:../images/rtp01.jpeg]]
+
+where he worked for a consulting company building a
    custom software platform for Metlife Japan until it was successfully
-   handed over to the client. Looking for new challenges, Evgeniy
-   joined the Ai team to work on CHPL and ULP.
+   handed over to the client.
+
+
+   
+Looking for new challenges, Evgeniy
+   joined the [[https://ainq.com/][Audacious Inquiry]] team to work in the Healthcare IT.
 
    Evgeniy is married with three children which makes life interesting
    and challenging at the same time. Before he had children he enjoyed
@@ -56,9 +79,15 @@ about using Emacs and Org mode for static website
    Source code for this website it located at
    https://hg.sr.ht/~evgeniysharapov/Website. I use Emacs for editing
    Org files with content and then commit it.
+
+   
    Deployment pipeline is kicked in and generates web-site code   
    
 ** How This website is deploy
    
    some text /italic/ and **bold**
 
+
+# Local Variables:
+# org-link-file-path-type: relative
+# End:

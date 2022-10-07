@@ -80,9 +80,11 @@ So the S is split into parts and then joined into a string with ':' character."
 (defun html (filename)
   "Read a file FILENAME from directory src/_html into a string.
 Extension .html is added automatically."
-  (with-temp-buffer
-    (insert-file-contents (filename *site-content-dir* "_html" (concat filename ".html")))
-    (buffer-string)))
+  (let ((html-dir (filename *site-content-dir* "_html")))
+    (with-temp-buffer
+      (make-directory html-dir t)
+      (insert-file-contents (filename html-dir (concat filename ".html")))
+      (buffer-string))))
 
 ;;; Tags page build up
 (defun add-tags-pages (tags file &optional headline)
@@ -93,7 +95,9 @@ TAGS is a list of tags. FILE is a filename. HEADLINE is an optional headline.
 2. if exists add more entries to the file
 3. if doesn't exist then create a new file and add the entries"
   (mapc (lambda (tag)
-          (let* ((tagfile (filename *site-output-dir* "tags" (concat tag ".org")))                 
+          (let* ((tags-directory  (filename *site-output-dir* "tags"))
+                 (r (make-directory tags-directory t))
+                 (tagfile (filename tags-directory (concat tag ".org")))
                  (entry (if headline
                             (format  "[[file:%s][%s]]\n" file headline)
                           (format "[[file:%s]]\n" file))))
